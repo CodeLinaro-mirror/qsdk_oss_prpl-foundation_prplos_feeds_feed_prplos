@@ -1,0 +1,36 @@
+config PACKAGE_tr140-storageservice
+    tristate
+    select AMX_TR140_STORAGE_SERVICE
+
+if PACKAGE_tr140-storageservice
+
+menu "Select tr140-storageservice build options"
+    depends on PACKAGE_tr140-storageservice
+
+config AMX_TR140_STORAGE_SERVICE
+    bool "Build a TR-140 compatible storage service manager"
+    default y
+
+config AMX_TR140_STORAGE_SERVICE_ORDER
+    int "Start up order for the tr140-storageservice manager"
+    default 70
+
+config AMX_TR140_STORAGE_SERVICE_FOLDER_AUTO_ADD_USB_DEVICES_ROOT
+    bool "Enable Folder auto add usb devices root"
+    default n
+
+config AMX_TR140_STORAGE_SERVICE_ENABLE_NTFS_3G
+    bool "Enable ntfs-3g package. Only needed for kernel version <= 5.15 systems where native NTFS3 (CONFIG_NTFS3_FS) is not supported."
+    default n
+
+config AMX_TR140_STORAGE_SERVICE_RUN_AS_USER
+    string "User will be used for the tr140-storageservice plugin"
+    default "tr181_app"
+
+config AMX_TR140_STORAGE_SERVICE_RUN_AS_GROUP
+    string "Group will be used for the tr140-storageservice plugin"
+    default "tr181_app"
+
+endmenu
+
+endif
