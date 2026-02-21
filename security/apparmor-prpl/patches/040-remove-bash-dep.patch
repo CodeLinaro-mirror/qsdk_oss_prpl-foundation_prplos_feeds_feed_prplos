@@ -1,0 +1,17 @@
+--- a/utils/aa-decode
++++ b/utils/aa-decode
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/bin/sh
+ #
+ #    Copyright (C) 2009-2010, 2012 Canonical Ltd.
+ #    Copyright (C) 2012 Christian Boltz
+@@ -16,8 +16,6 @@
+ #    along with this program; if not, contact Canonical, Ltd.
+ #
+ 
+-set -e
+-
+ help() {
+     cat <<EOM
+ USAGE: aa-decode [OPTIONS] <encoded string>
