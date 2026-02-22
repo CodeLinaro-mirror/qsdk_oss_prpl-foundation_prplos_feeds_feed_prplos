@@ -1,0 +1,37 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile odhcpd /usr/sbin/odhcpd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_bind_service,
+  capability net_raw,
+  capability sys_module,
+
+  network inet6 raw,
+  network unix dgram,
+  network unix stream,
+
+  /bin/busybox ix,
+  /bin/busybox mr,
+  /bin/ubus mrix,
+  /etc/config/dhcp rk,
+  /proc/*/net/ipv6_route r,
+  /proc/sys/net/ipv6/conf/** r,
+  /tmp/.uci/dhcp rk,
+  /tmp/hosts/ w,
+  /tmp/hosts/odhcpd w,
+  /tmp/hosts/odhcpd.tmp rwk,
+  /tmp/lock/procd_.lock wk,
+  /usr/bin/basename mrix,
+  /usr/bin/flock mrix,
+  /usr/bin/jshn mrix,
+  /usr/bin/readlink mrix,
+  /usr/bin/util-linux-flock mrix,
+  /usr/sbin/odhcpd-update mrix,
+  /usr/share/libubox/jshn.sh r,
+  /proc/sys/net/ipv6/conf/** rw,
+}

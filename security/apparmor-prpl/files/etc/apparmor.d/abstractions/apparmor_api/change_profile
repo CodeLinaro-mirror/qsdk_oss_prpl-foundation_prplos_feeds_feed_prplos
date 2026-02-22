@@ -1,0 +1,5 @@
+abi <abi/3.0>,
+
+include <abstractions/apparmor_api/introspect>
+
+@{PROC}/@{tid}/attr/{apparmor/,}{current,exec} w,

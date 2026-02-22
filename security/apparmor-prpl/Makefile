@@ -205,9 +205,8 @@ define Package/apparmor-utils-prpl/install
 endef
 
 define Package/apparmor-profiles-prpl/install
-	$(INSTALL_DIR) $(1)/etc/apparmor.d $(1)/usr/share/apparmor/extra-profiles
-	$(CP) -aR $(PKG_INSTALL_DIR)-profiles/etc/apparmor.d/** $(1)/etc/apparmor.d/
-	$(INSTALL_CONF) $(PKG_INSTALL_DIR)-profiles/usr/share/apparmor/extra-profiles/** $(1)/usr/share/apparmor/extra-profiles/
+	mkdir -p $(1)/etc/apparmor.d/
+	$(CP) ./files/etc/apparmor.d/* $(1)/etc/apparmor.d/
 endef
 
 $(eval $(call BuildPackage,libapparmor-prpl))

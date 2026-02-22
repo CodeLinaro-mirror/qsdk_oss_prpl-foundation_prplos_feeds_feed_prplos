@@ -1,0 +1,33 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile tr181-pcp /usr/bin/tr181-pcp flags=(attach_disconnected) {
+  include <abstractions/base>
+
+  capability setuid,
+  capability setgid,
+
+  network unix,
+  network inet dgram,
+  network inet6 dgram,
+
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-pcp/** r,
+  /etc/amx/tr181-device/extensions/01_device-pcp_mapping.odl r,
+  /etc/config/tr181-pcp/ rw,
+  /etc/config/tr181-pcp/** rw,
+  /etc/hosts r,
+  /tmp/run/tr181-pcp.pid w,
+  /tmp/resolv.conf r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/** mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/** mr,
+  /usr/lib/amx/tr181-pcp/ r,
+  /usr/lib/amx/tr181-pcp/tr181-pcp.so mr,
+  /usr/lib/amx/tr181-pcp/modules/mod-pcp-libpcp.so mr,
+  /usr/lib/libpcp-client.so mr,
+}

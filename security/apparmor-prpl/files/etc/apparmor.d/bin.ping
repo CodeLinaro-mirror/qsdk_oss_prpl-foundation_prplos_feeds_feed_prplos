@@ -1,0 +1,10 @@
+include <tunables/global>
+
+profile ping /bin/ping flags=(attach_disconnected) {
+  include <abstractions/base>
+
+  capability net_raw,
+
+  /etc/hosts r,
+  /tmp/resolv.conf r,
+}

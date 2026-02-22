@@ -1,0 +1,36 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile pppd /usr/sbin/pppd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_raw,
+  capability setgid,
+  capability setuid,
+
+  network packet raw,
+  network pppox stream,
+  network unix dgram,
+
+  /bin/ubus mrix,
+  /etc/ppp/ip-down.d/ppp-down.sh ix,
+  /etc/ppp/ip-up.d/ppp-up.sh ix,
+  /lib/netifd/ppp-down ix,
+  /lib/netifd/ppp-up ix,
+  /usr/bin/env mrix,
+  /usr/bin/jshn mrix,
+  /dev/ppp rw,
+  /etc/passwd r,
+  /etc/ppp/ip-down.d/ r,
+  /etc/ppp/ip-down.d/ppp-down.sh r,
+  /etc/ppp/ip-up.d/ r,
+  /etc/ppp/ip-up.d/ppp-up.sh r,
+  /etc/ppp/options r,
+  /proc/*/net/route r,
+  /tmp/resolv.conf.ppp w,
+  /tmp/run/pppoe-wan.pid w,
+  /usr/share/libubox/jshn.sh r,
+}

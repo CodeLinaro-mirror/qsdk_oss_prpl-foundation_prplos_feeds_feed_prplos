@@ -1,0 +1,35 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile udhcpc /sbin/udhcpc flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_bind_service,
+  capability net_raw,
+  capability sys_module,
+
+  network inet raw,
+  network packet dgram,
+
+  /bin/cat mrix,
+  /bin/ipcalc.sh mrix,
+  /bin/sh mrix,
+  /bin/true mrix,
+  /bin/ubus ix,
+  /etc/udhcpc.user r,
+  /etc/udhcpc.user.d/ r,
+  /etc/udhcpc.user.d/tr181-dhcpv4client r,
+  /lib/netifd/dhcp.script mrix,
+  /sys/devices/virtual/net/*/operstate r,
+  /sys/devices/platform/*/net/*/operstate r,
+  /tmp/run/udhcpc*.pid w,
+  /tmp/sysinfo/board_name r,
+  /usr/bin/awk mrix,
+  /usr/bin/env ix,
+  /usr/bin/jshn ix,
+  /usr/bin/tr ix,
+  /usr/share/libubox/jshn.sh r,
+}

@@ -1,0 +1,24 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile odhcp6c /usr/sbin/odhcp6c flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_bind_service,
+  capability net_raw,
+  capability dac_override,
+  capability kill,
+
+  network inet6 raw,
+  network netlink dgram,
+
+  /bin/busybox ix,
+  /bin/busybox mr,
+  /bin/ubus mrix,
+  /etc/amx/tr181-dhcpv6client/odhcpv6c-script.sh mrix,
+  /lib/lib*so* mr,
+  /usr/bin/env mrix,
+}

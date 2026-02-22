@@ -1,0 +1,35 @@
+abi <abi/3.0>,
+
+#include <tunables/global>
+
+profile hostapd /usr/sbin/hostapd flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_raw,
+  capability sys_module,
+  capability dac_override,
+
+  network packet,
+
+  # for RADIUS
+  network inet dgram,
+  network inet6 dgram,
+
+  /etc/ssl/modules.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/legacy.cnf r,
+  /etc/ssl/openssl.cnf r,
+  /tmp/etc/ssl/engines.cnf r,
+  /tmp/etc/ssl/providers.cnf r,
+
+  # grant read access to config files
+  /tmp/wlan*hapd.conf r,
+  /tmp/hostap_wlan*.acl r,
+
+  /dev/rfkill rw,
+
+  /tmp/TZ r,
+  /tmp/run/hostapd/ rw,
+  /tmp/run/hostapd/* rw,
+}

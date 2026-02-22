@@ -1,0 +1,45 @@
+  abi <abi/3.0>,
+
+  /dev/log                       w,
+  /dev/random                    r,
+  /dev/urandom                   r,
+
+  @{etc_ro}/localtime            r,
+
+  /{usr/,}lib{,32,64}/ld{,32,64}-*.so   mr,
+
+  /{usr/,}lib{,32,64}/**                r,
+  /{usr/,}lib{,32,64}/**.so*       mr,
+
+  /dev/null                      rw,
+  /dev/zero                      rw,
+  /dev/full                      rw,
+
+  @{PROC}/sys/kernel/version     r,
+  @{PROC}/sys/kernel/ngroups_max r,
+
+  @{PROC}/meminfo                r,
+  @{PROC}/stat                   r,
+  @{PROC}/cpuinfo                r,
+  @{sys}/devices/system/cpu/       r,
+  @{sys}/devices/system/cpu/online r,
+
+  @{PROC}/@{pid}/{maps,auxv,status} r,
+  @{PROC}/filesystems            r,
+  @{PROC}/sys/vm/overcommit_memory r,
+  @{PROC}/sys/kernel/cap_last_cap r,
+
+  ptrace (readby),
+  ptrace (tracedby),
+  ptrace (read) peer=@{profile_name},
+
+  signal (receive) peer=unconfined,
+  signal peer=@{profile_name},
+  signal (receive, send) set=("exists"),
+
+  unix peer=(label=@{profile_name}),
+  unix (receive) peer=(label=unconfined),
+  unix (create),
+  unix (getattr, getopt, setopt, shutdown),
+
+  include if exists <abstractions/base.d>

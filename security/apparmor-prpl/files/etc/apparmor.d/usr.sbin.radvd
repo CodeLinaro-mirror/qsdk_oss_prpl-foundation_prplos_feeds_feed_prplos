@@ -1,0 +1,24 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile radvd /usr/sbin/radvd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability dac_override,
+  capability kill,
+  capability net_raw,
+  capability net_admin,
+
+  network inet6 raw,
+
+  /etc/radvd.conf r,
+  /proc/sys/net/ipv6/conf/*/forwarding r,
+  /proc/sys/net/ipv6/conf/*/mtu rw,
+  /proc/sys/net/ipv6/conf/all/forwarding r,
+  /tmp/run/ r,
+  /tmp/run/radvd.pid rwk,
+  /tmp/TZ r,
+}
+

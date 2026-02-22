@@ -1,0 +1,11 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile ddns /usr/bin/ddns flags=(attach_disconnected) {
+  include <abstractions/base>
+
+  /sbin/uci mrix,
+  /usr/bin/basename mrix,
+  /usr/bin/ddns r,
+}

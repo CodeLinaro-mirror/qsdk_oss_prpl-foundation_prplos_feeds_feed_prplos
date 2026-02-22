@@ -1,0 +1,12 @@
+include <tunables/global>
+
+profile traceroute /bin/traceroute flags=(attach_disconnected) {
+  include <abstractions/base>
+
+  capability net_raw,
+  capability setgid,
+  capability setuid,
+
+  /etc/hosts r,
+  /tmp/resolv.conf r,
+}

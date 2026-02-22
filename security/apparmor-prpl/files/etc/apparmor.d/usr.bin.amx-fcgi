@@ -1,0 +1,32 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile amx-fcgi /usr/bin/amx-fcgi flags=(attach_disconnected) {
+  include <abstractions/base>
+
+  capability setuid,
+  capability setgid,
+
+  network unix stream,
+
+  /bin/tar mrix,
+  /sbin/sysupgrade rux,
+  /etc/amx/amx-fcgi/amx-fcgi.odl r,
+  /etc/config/amx-fcgi/ w,
+  /etc/group r,
+  /etc/passwd r,
+  /tmp/dhcp.leases r,
+  /tmp/run/amx-fcgi.pid w,
+  /tmp/run/http/amx-fcgi.sock w,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /tmp/firmwareUpgrade.img rw,
+  /cfg/etc/acl/merged/* r,
+  /tmp/log/ r,
+  /tmp/log/messages* r,
+  /tmp/sysupgrade.tgz rw,
+  /srv/log/ r,
+  /srv/log/security_messages* r,
+  /webui/var/run/http/amx-fcgi.sock w,
+}

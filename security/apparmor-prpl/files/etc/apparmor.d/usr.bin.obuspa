@@ -1,0 +1,23 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile obuspa /usr/bin/obuspa flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  /etc/ r,
+  /etc/obuspa.db rwk,
+  /etc/obuspa.db-journal rw,
+  /etc/ssl/certs/ca-certificates.crt r,
+  /etc/ssl/modules.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/legacy.cnf r,
+  /etc/ssl/openssl.cnf r,
+  /proc/*/task/*/comm wr,
+  /tmp/etc/ssl/engines.cnf r,
+  /tmp/etc/ssl/providers.cnf r,
+  /tmp/resolv.conf r,
+  /tmp/run/usp/broker_agent_path w,
+  /tmp/run/usp/broker_controller_path w,
+  /tmp/usp_cli w,
+}

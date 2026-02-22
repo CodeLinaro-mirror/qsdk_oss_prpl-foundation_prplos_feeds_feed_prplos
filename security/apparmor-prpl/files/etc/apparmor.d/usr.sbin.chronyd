@@ -1,0 +1,28 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile chronyd /usr/sbin/chronyd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability chown,
+  capability dac_override,
+  capability dac_read_search,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability sys_time,
+
+  network unix dgram,
+
+  /etc/hosts r,
+  /tmp/resolv.conf r,
+  /tmp/run/chrony/chronyd.pid w,
+  /etc/chrony/chrony.conf r,
+  /tmp/etc/chrony.conf r,
+  /tmp/run/chrony/ w,
+  /tmp/run/chrony/chronyd.sock w,
+  /tmp/run/chrony/drift rw,
+  /tmp/run/chrony/drift.tmp rw,
+}

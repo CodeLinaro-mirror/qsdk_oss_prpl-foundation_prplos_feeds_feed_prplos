@@ -1,0 +1,18 @@
+  abi <abi/3.0>,
+
+  @{HOMEDIRS}                      r,
+  @{HOME}/.profile                 r,
+
+  /etc/profile                     r,
+  /etc/profile.d/                  r,
+  /etc/profile.d/*                 r,
+
+  /etc/mtab                        r,
+  @{PROC}/@{pid}/mounts            r,
+  @{PROC}/filesystems              r,
+
+  /usr/share/terminfo/**           r,
+
+  /{usr/,}bin/ls                   mix,
+
+  include if exists <abstractions/profile.d>

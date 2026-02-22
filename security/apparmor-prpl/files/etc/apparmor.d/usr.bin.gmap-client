@@ -1,0 +1,22 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile gmap-client /usr/bin/gmap-client flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_raw,
+
+  network inet6 raw,
+  network packet dgram,
+
+  /tmp/run/gmap-client.pid w,
+  /etc/amx/gmap-client/ r,
+  /etc/amx/gmap-client/** r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+}

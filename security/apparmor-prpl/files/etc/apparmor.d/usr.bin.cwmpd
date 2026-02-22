@@ -1,0 +1,40 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile cwmpd /usr/bin/cwmpd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  network unix dgram,
+  network unix stream,
+
+  / r,
+  /root/ r,
+  /etc/amx/cwmp_plugin/* r,
+  /etc/config/cwmp_plugin/ r,
+  /etc/config/cwmp_plugin/* rw,
+  /etc/hosts r,
+  /etc/ssl/certs/ca-certificates.crt r,
+  /etc/ssl/cwmpdcerts.pem r,
+  /etc/ssl/cwmp/* r,
+  /etc/ssl/engines.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/legacy.cnf r,
+  /etc/ssl/openssl.cnf r,
+  /opt/prplos/usr/lib/ r,
+  /opt/prplos/usr/lib/lib*so* mr,
+  /tmp/TZ r,
+  /tmp/etc/ssl/engines.cnf r,
+  /tmp/etc/ssl/providers.cnf r,
+
+  /tmp/resolv.conf r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/lib/ r,
+  /cfg/etc/acl/merged/* r,
+
+  /etc/amx/modules/global_variables.odl r,
+  /etc/ssl/modules.cnf.d/pkcs11.cnf r,
+  /etc/config/autocert/cpe.crt r,
+  /usr/share/ca-certificates/ca.crt r
+}

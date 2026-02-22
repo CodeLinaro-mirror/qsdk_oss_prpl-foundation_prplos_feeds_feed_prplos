@@ -1,0 +1,2 @@
+# @{securityfs} is the location where securityfs is mounted.
+@{securityfs}=@{sys}/kernel/security/

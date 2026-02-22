@@ -1,0 +1,29 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile unbound /usr/sbin/unbound flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability dac_override,
+  capability fowner,
+  capability kill,
+  capability net_bind_service,
+  capability net_raw,
+  capability net_admin,
+
+  /etc/ssl/modules.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/legacy.cnf r,
+  /etc/ssl/modules.cnf.d/pkcs11.cnf r,
+  /etc/ssl/openssl.cnf r,
+  /etc/unbound/unbound.conf r,
+  /tmp/etc/ssl/engines.cnf r,
+  /tmp/etc/ssl/providers.cnf r,
+  /tmp/etc/unbound/* rw,
+  /tmp/run/ubus/ubus.sock rw,
+  /tmp/run/unbound*.pid rw,
+  /tmp/TZ r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/* mr,
+}

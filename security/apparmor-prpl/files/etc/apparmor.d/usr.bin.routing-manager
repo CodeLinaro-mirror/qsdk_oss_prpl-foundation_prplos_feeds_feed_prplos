@@ -1,0 +1,32 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile routing-manager /usr/bin/routing-manager flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability setuid,
+  capability setgid,
+  capability net_admin,
+  capability net_raw,
+  capability dac_override,
+
+  network inet6 raw,
+
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/routing-manager/ r,
+  /etc/amx/routing-manager/** r,
+  /etc/config/routing-manager/ rw,
+  /etc/config/routing-manager/** rw,
+  /tmp/run/routing-manager.pid w,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/* mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/* mr,
+}
+

@@ -1,0 +1,35 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile tr181-dhcpv4client /usr/bin/tr181-dhcpv4client flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability setuid,
+  capability setgid,
+  capability net_bind_service,
+  capability net_raw,
+  capability kill,
+  capability dac_override,
+
+  network packet,
+  network inet dgram,
+
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-dhcpv4client/ r,
+  /etc/amx/tr181-dhcpv4client/** r,
+  /etc/config/tr181-dhcpv4client/ rw,
+  /etc/config/tr181-dhcpv4client/odl/ rw,
+  /etc/config/tr181-dhcpv4client/odl/tr181-dhcpv4client.odl rw,
+  /etc/config/tr181-dhcpv4client/odl/tr181-dhcpv4client.odl.tmp rw,
+  /tmp/run/tr181-dhcpv4client.pid rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+}
+

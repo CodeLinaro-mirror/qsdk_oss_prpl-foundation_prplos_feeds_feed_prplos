@@ -1,0 +1,39 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile dnsmasq /usr/sbin/dnsmasq flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability chown,
+  capability dac_override,
+  capability net_admin,
+  capability net_bind_service,
+  capability net_raw,
+  capability setgid,
+  capability setuid,
+  capability sys_module,
+
+  network inet raw,
+
+  /etc/TZ r,
+  /etc/dnsmasq.conf r,
+  /etc/ethers r,
+  /proc/*/fd/ r,
+  /tmp/TZ r,
+  /tmp/dhcp.hostsfile rw,
+  /tmp/dhcp.leases rw,
+  /tmp/dnsmasq.d/ r,
+  /tmp/dnsmasq_conf/ r,
+  /tmp/dnsmasq_conf/* r,
+  /tmp/hosts/ r,
+  /tmp/hosts/dhcp.* r,
+  /tmp/hosts/odhcpd r,
+  /tmp/hosts/tr181-dns-hosts r,
+  /tmp/resolv.conf.d/resolv.conf.auto r,
+  /tmp/run/dnsmasq.pid w,
+  /usr/share/dnsmasq/* r,
+  /var/etc/dnsmasq* r,
+  /var/run/dnsmasq/dnsmasq* w,
+}

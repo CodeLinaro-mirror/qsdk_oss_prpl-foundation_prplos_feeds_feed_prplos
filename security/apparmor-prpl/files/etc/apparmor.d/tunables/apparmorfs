@@ -1,0 +1,3 @@
+include <tunables/securityfs>
+
+@{apparmorfs}=@{securityfs}/apparmor/

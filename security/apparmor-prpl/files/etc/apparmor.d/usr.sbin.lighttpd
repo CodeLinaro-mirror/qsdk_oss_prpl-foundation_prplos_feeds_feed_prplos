@@ -1,0 +1,40 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile lighttpd /usr/sbin/lighttpd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+
+  /etc/group r,
+  /etc/lighttpd/* r,
+  /etc/lighttpd/conf.d/ r,
+  /etc/lighttpd/conf.d/* r,
+  /etc/lighttpd/mod/ r,
+  /etc/lighttpd/mod/* r,
+  /etc/passwd r,
+  /proc/sys/net/ipv4/tcp_available_ulp r,
+  /tmp/TZ r,
+  /tmp/log/lighttpd/* w,
+  /tmp/resolv.conf r,
+  /tmp/run/lighttpd.pid w,
+  /www/** r,
+  /tmp/lighttpd-upload* rwCx,
+  /etc/ssl/modules.cnf.d/pkcs11.cnf r,
+  /etc/ssl/openssl.cnf r,
+  /tmp/etc/ssl/engines.cnf r,
+  /tmp/etc/ssl/providers.cnf r,
+  /etc/ssl/engines.cnf.d/ r,
+  /etc/ssl/engines.cnf.d/* r,
+  /etc/ssl/modules.cnf.d/ r,
+  /etc/ssl/modules.cnf.d/legacy.cnf r,
+  /etc/ssl/certs/* r,
+# rules for LXC
+  /run/lighttpd.pid w,
+  /var/log/lighttpd/error.log w,
+  /lighttpd.conf r,
+}

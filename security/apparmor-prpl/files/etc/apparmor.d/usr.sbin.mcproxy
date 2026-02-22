@@ -1,0 +1,18 @@
+abi <abi/3.0>,
+
+include <tunables/global>
+
+profile mcproxy /usr/sbin/mcproxy flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_raw,
+  capability net_admin,
+  capability sys_module,
+
+  network inet raw,
+  network inet6 raw,
+
+  /tmp/etc/mcproxy*.conf r,
+  /proc/sys/net/ipv4/conf/*/rp_filter rw,
+}

@@ -1,0 +1,8 @@
+  abi <abi/3.0>,
+
+  /dev/console rw,
+  /dev/tty     rw,
+  /dev/pts/[0-9]*   rw,
+  /dev/pts/         r,
+
+  include if exists <abstractions/consoles.d>
