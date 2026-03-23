@@ -1,0 +1,90 @@
+From c0cd6ff7c726b09ea848acf13d8ec505e785d34f Mon Sep 17 00:00:00 2001
+From: Haithem SFAXI <haithem.sfaxi@sagemcom.com>
+Date: Mon, 23 Mar 2026 13:44:40 +0100
+Subject: [PATCH] PPW-1222 : Fix Set Bool check
+
+Root Cause :
+When the numeric value of a bool is used to set a path, the check fails because the read value from the DM is true/false.
+
+Fix:
+- In the check function when both the set and the read value are boolean 0/1/false/true convert them to bool before comparaison.
+- Fix error string : the parameter value is used instead of the key
+---
+ src/core/text_utils.c | 18 ++++++++++++++++++
+ src/core/text_utils.h |  1 +
+ src/core/usp_broker.c | 17 +++++++++++++++--
+ 3 files changed, 34 insertions(+), 2 deletions(-)
+
+diff --git a/src/core/text_utils.c b/src/core/text_utils.c
+index 8f97dfdbdf9e..724e5c20e52f 100644
+--- a/src/core/text_utils.c
++++ b/src/core/text_utils.c
+@@ -320,6 +320,24 @@ char *TEXT_UTILS_BoolToString(bool value)
+     return (value) ? "true" : "false";
+ }
+ 
++
++/*********************************************************************//**
++**
++** TEXT_UTILS_IsBoolString
++**
++** Test If a string is a boolean
++**
++** \param   value - string to test
++**
++** \return  true if the string is a boolean
++**
++**************************************************************************/
++bool TEXT_UTILS_IsBoolString(char * value)
++{
++    bool is_bool = ((strcasecmp(value, "true")==0) || (strcmp(value, "1")==0) ||
++                    (strcasecmp(value, "false")==0) || (strcmp(value, "0")==0));
++    return is_bool;
++}
+ /*********************************************************************//**
+ **
+ ** TEXT_UTILS_StringToEnum
+diff --git a/src/core/text_utils.h b/src/core/text_utils.h
+index 2bc976ce9d40..08fe8f1d8fe0 100644
+--- a/src/core/text_utils.h
++++ b/src/core/text_utils.h
+@@ -68,6 +68,7 @@ int TEXT_UTILS_StringToLongLong(char *str, long long *value);
+ int TEXT_UTILS_StringToDouble(char *str, double *value);
+ int TEXT_UTILS_StringToBool(char *str, bool *value);
+ char *TEXT_UTILS_BoolToString(bool value);
++bool TEXT_UTILS_IsBoolString(char * value);
+ int TEXT_UTILS_StringToEnum(char *str, const enum_entry_t *enums, int num_enums);
+ char *TEXT_UTILS_EnumToString(int value, const enum_entry_t *enums, int num_enums);
+ char *TEXT_UTILS_EnumListToString(const enum_entry_t *enums, int num_enums, char *buf, int len);
+diff --git a/src/core/usp_broker.c b/src/core/usp_broker.c
+index 8d679625f3e6..8f03ab33020b 100644
+--- a/src/core/usp_broker.c
++++ b/src/core/usp_broker.c
+@@ -4694,9 +4694,22 @@ bool CheckSetResponse_OperSuccess(Usp__SetResp__UpdatedObjectResult__OperationSt
+ 
+             // Check that the parameter was set to the expected value
+             expected_value = params->vector[index].value;
+-            if (strcmp(expected_value, updated_param->value) != 0)
++            if ( TEXT_UTILS_IsBoolString(expected_value) && TEXT_UTILS_IsBoolString(updated_param->value) )
+             {
+-                USP_ERR_SetMessage("%s: SetResponse contained the wrong value for param=%s (expected='%s', got='%s')", __FUNCTION__, path, expected_value, updated_param->key);
++                bool expected_bool;
++                bool updated_bool;
++
++                TEXT_UTILS_StringToBool(expected_value, &expected_bool);
++                TEXT_UTILS_StringToBool(updated_param->value, &updated_bool);
++                if (expected_bool != updated_bool)
++                {
++                    USP_ERR_SetMessage("%s: SetResponse contained the wrong value for param=%s.%s (expected='%s', got='%s')", __FUNCTION__, path, updated_param->key, expected_value, updated_param->value);
++                    is_success = false;
++                }
++            }
++            else if (strcmp(expected_value, updated_param->value) != 0)
++            {
++                USP_ERR_SetMessage("%s: SetResponse contained the wrong value for param=%s.%s (expected='%s', got='%s')", __FUNCTION__, path, updated_param->key, expected_value, updated_param->value);
+                 is_success = false;
+             }
+         }
+-- 
+2.39.5
+
