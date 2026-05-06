@@ -23,6 +23,14 @@ config SAH_IP_DIAGNOSTICS_STOP_ORDER
     int "Init stop order for the TR-181 IP.Diagnostics Plugin"
     default 10
 
+config SAH_IP_DIAGNOSTICS_RUN_AS_USER
+    string "User will be used for the tr181-ipdiagnostics plugin"
+    default "tr181_app"
+
+config SAH_IP_DIAGNOSTICS_RUN_AS_GROUP
+    string "Group will be used for the tr181-ipdiagnostics plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
