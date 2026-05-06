@@ -19,6 +19,14 @@ config SAH_DYNAMIC_DNS_STOP_ORDER
     int "Init stop order for the the TR-181 Device.DynamicDNS plugin"
     default 10
 
+config SAH_DYNAMIC_DNS_RUN_AS_USER
+    string "User will be used for the tr181-dynamicdns plugin"
+    default "tr181_app"
+
+config SAH_DYNAMIC_DNS_RUN_AS_GROUP
+    string "Group will be used for the tr181-dynamicdns plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
