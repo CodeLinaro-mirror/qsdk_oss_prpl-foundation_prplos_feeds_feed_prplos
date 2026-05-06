@@ -41,11 +41,19 @@ config SAH_AMX_TR181_DEVICEINFO_SOFTWARE_VERSION
 
 config SAH_AMX_TR181_DEVICEINFO_RUN_AS_USER
     string "User will be used for the TR181_DEVICEINFO plugin"
-    default "root"
+    default "tr181_app"
 
 config SAH_AMX_TR181_DEVICEINFO_RUN_AS_GROUP
     string "Group will be used for the TR181_DEVICEINFO plugin"
-    default "root"
+    default "tr181_app"
+
+config SAH_AMX_TR181_DEVICEINFO_SYSTEM_RUN_AS_USER
+    string "User will be used for the deviceinfo-system plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_DEVICEINFO_SYSTEM_RUN_AS_GROUP
+    string "Group will be used for the deviceinfo-system plugin"
+    default "tr181_app"
 
 config SAH_AMX_TR181_DEVICEINFO_NUMBER_OF_EXTRA_MAC_ADDRESSES
     string "The number of extra mac addresses to expose in /var/etc/environment (BASEMACADDRESS_PLUS_X)"
