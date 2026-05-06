@@ -23,6 +23,14 @@ config SAH_AMX_PACKET_INTERCEPTION_SUPPORT_SKIPLOG
     bool "Support skiplog"
     default n
 
+config SAH_AMX_PACKET_INTERCEPTION_RUN_AS_USER
+    string "User will be used for the packet-interception plugin"
+    default "tr181_app"
+
+config SAH_AMX_PACKET_INTERCEPTION_RUN_AS_GROUP
+    string "Group will be used for the packet-interception plugin"
+    default "tr181_app"
+
 config SAH_AMX_PACKET_INTERCEPTION_NOT_OFFLOAD_MARK
     int "SKB mark set to not offload packets to hardware accelerator"
     default 32
