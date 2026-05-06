@@ -15,6 +15,14 @@ config SAH_AMX_TR181_DEVICE_ORDER
     int "Start up order for the tr181 device plugin"
     default 41
 
+config SAH_AMX_TR181_DEVICE_RUN_AS_USER
+    string "User will be used for the tr181-device plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_DEVICE_RUN_AS_GROUP
+    string "Group will be used for the tr181-device plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
