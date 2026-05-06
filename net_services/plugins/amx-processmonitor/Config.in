@@ -11,6 +11,14 @@ config SAH_AMX_PROCESSMONITOR
     bool "Build processmonitor plugin"
     default y
 
+config SAH_AMX_PROCESSMONITOR_RUN_AS_USER
+    string "User will be used for the amx-processmonitor plugin"
+    default "tr181_app"
+
+config SAH_AMX_PROCESSMONITOR_RUN_AS_GROUP
+    string "Group will be used for the amx-processmonitor plugin"
+    default "tr181_app"
+
 config SAH_AMX_PROCESSMONITOR_START_ORDER
     int "Start up order"
     default 99
