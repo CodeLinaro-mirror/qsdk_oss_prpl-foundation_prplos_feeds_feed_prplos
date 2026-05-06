@@ -11,6 +11,14 @@ config SAH_AMX_GMAP_SERVER
     bool "Build gMap server"
     default y
 
+config SAH_AMX_GMAP_SERVER_RUN_AS_USER
+    string "User that will be used for the gmap-server plugin"
+    default "tr181_app"
+
+config SAH_AMX_GMAP_SERVER_RUN_AS_GROUP
+    string "Group that will be used for the gmap-server plugin"
+    default "tr181_app"
+
 config SAH_AMX_GMAP_SERVER_START_ORDER
     int "gMap server plugin startup order"
     default 71
