@@ -19,6 +19,14 @@ config SAH_AMX_TR181_QOS_DEVICE_BASED_CLASSIFICATION
     bool "Enable device based classification"
     default y
 
+config SAH_AMX_TR181_QOS_RUN_AS_USER
+    string "User will be used for the tr181-qos plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_QOS_RUN_AS_GROUP
+    string "Group will be used for the tr181-qos plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
