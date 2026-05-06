@@ -19,6 +19,14 @@ config SAH_AMX_TR181_BULKDATA_STOP_ORDER
     int "TR-181 BulkData plugin shut down order"
     default 88
 
+config SAH_AMX_TR181_BULKDATA_RUN_AS_USER
+    string "User will be used for the tr181-bulkdata plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_BULKDATA_RUN_AS_GROUP
+    string "Group will be used for the tr181-bulkdata plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
