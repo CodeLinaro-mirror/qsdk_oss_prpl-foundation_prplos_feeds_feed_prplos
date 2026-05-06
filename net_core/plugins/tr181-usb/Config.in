@@ -19,6 +19,14 @@ config AMX_TR181_USB_BUSYBOX_MDEV_OPTIONS
     bool "Enable busybox support for mdev device events"
     default n
 
+config AMX_TR181_USB_RUN_AS_USER
+    string "User will be used for the tr181-usb plugin"
+    default "tr181_app"
+
+config AMX_TR181_USB_RUN_AS_GROUP
+    string "Group will be used for the tr181-usb plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
