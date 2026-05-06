@@ -31,6 +31,14 @@ config SAH_AMX_TR181_XPON_USE_NETDEV_COUNTERS
 	help
 	  If not enabled the vendor module is responsible for displaying the network statistics in the tr181-xpon datamodel
 
+config SAH_AMX_TR181_XPON_RUN_AS_USER
+    string "User will be used for the tr181-xpon plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_XPON_RUN_AS_GROUP
+    string "Group will be used for the tr181-xpon plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
