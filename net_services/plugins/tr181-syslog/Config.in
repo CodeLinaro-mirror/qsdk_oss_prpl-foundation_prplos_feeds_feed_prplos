@@ -19,6 +19,14 @@ config SAH_AMX_TR181_SYSLOG_STOP_ORDER
     int "Init stop order for the TR-181 compatible syslog"
     default 88
 
+config SAH_AMX_TR181_SYSLOG_RUN_AS_USER
+    string "User will be used for the TR-181 compatible syslog process"
+    default "tr181_app"
+
+config SAH_AMX_TR181_SYSLOG_RUN_AS_GROUP
+    string "Group will be used for the TR-181 compatible syslog process"
+    default "syslog"
+
 endmenu
 
 endif
