@@ -15,6 +15,14 @@ config SAH_AMX_MULTISETTINGS_ORDER
     int "Start up order for the tr181 multisettings plugin"
     default 19
 
+config SAH_AMX_MULTISETTINGS_RUN_AS_USER
+    string "User will be used for the multisettings plugin"
+    default "tr181_app"
+
+config SAH_AMX_MULTISETTINGS_RUN_AS_GROUP
+    string "Group will be used for the multisettings plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
