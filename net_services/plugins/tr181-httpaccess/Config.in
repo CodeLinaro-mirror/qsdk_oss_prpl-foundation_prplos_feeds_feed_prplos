@@ -15,6 +15,14 @@ config SAH_AMX_TR181_HTTPACCESS_ORDER
     int "TR-181 HTTPAccess plugin start order"
     default 49
 
+config SAH_AMX_TR181_HTTPACCESS_RUN_AS_USER
+    string "User will be used for the tr181-httpaccess plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_HTTPACCESS_RUN_AS_GROUP
+    string "Group will be used for the tr181-httpaccess plugin"
+    default "tr181_app"
+
 config SAH_AMX_TR181_HTTPACCESS_FIREWALL
     bool "Configure Firewall"
     default y
