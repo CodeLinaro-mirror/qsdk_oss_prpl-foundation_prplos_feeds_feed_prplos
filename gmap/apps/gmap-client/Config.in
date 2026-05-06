@@ -19,6 +19,14 @@ config SAH_AMX_GMAP_CLIENT_ONE_PROCESS
     bool "All gMap client modules run in same process"
     default n
 
+config SAH_AMX_GMAP_CLIENT_RUN_AS_USER
+    string "User will be used for the gmap-client plugin"
+    default "tr181_app"
+
+config SAH_AMX_GMAP_CLIENT_RUN_AS_GROUP
+    string "Group will be used for the gmap-client plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
