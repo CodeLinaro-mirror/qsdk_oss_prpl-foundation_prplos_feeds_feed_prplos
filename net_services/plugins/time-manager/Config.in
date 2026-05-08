@@ -15,6 +15,14 @@ config SAH_AMX_TR181_TIME_ORDER
     int "tr181 time plugin start up order"
     default 30
 
+config SAH_AMX_TR181_TIME_RUN_AS_USER
+    string "User will be used for the time-manager plugin"
+    default "chrony"
+
+config SAH_AMX_TR181_TIME_RUN_AS_GROUP
+    string "Group will be used for the time-manager plugin"
+    default "chrony"
+
 endmenu
 
 endif
