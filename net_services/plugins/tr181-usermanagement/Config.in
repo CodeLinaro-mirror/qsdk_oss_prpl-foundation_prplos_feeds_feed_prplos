@@ -19,6 +19,14 @@ config SAH_AMX_USERMANAGEMENT_DISABLE_SHA512
     bool "Disable SHA512 and use the insecure MD5 instead for hashing passwords"
     default n
 
+config SAH_AMX_USERMANAGEMENT_RUN_AS_USER
+    string "User to be used for the usermanagement plugin"
+    default "tr181_app"
+
+config SAH_AMX_USERMANAGEMENT_RUN_AS_GROUP
+    string "Group to be used for the usermanagement plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
