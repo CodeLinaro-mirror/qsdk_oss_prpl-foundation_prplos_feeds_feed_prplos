@@ -17,7 +17,7 @@ config SAH_AMX_TR181_PERIODICFILEUPLOAD_ORDER
 
 config SAH_AMX_TR181_PERIODICFILEUPLOAD_RUN_AS_USER
     string "User will be used for the tr181-periodicfileupload plugin"
-    default "tr181-app"
+    default "tr181_app"
 
 config SAH_AMX_TR181_PERIODICFILEUPLOAD_RUN_AS_GROUP
     string "Group will be used for the tr181-periodicfileupload plugin"
