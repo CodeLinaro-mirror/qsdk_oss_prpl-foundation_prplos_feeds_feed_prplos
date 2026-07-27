@@ -1,0 +1,18 @@
+{
+    "Device.IP.": {
+        "Order": 1,
+        "Param": "r--n"
+    },
+    "Device.IP.Interface.": {
+        "Order": 2,
+        "Param": "r--n"
+    },
+    "Device.IP.Interface.[Alias=='lan'].IPv4Address.[Alias=='lan'].": {
+        "Order": 3,
+        "Param": "rw-n"
+    },
+    "Device.IP.Interface.[Alias=='lan'].IPv6Address.[Alias=='ULA'].": {
+        "Order": 3,
+        "Param": "rw-n"
+    }
+}
