@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile routing-manager /usr/bin/routing-manager flags=(attach_disconnected) {
+profile routing-manager /usr/bin/routing-manager flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 
@@ -29,4 +29,3 @@ profile routing-manager /usr/bin/routing-manager flags=(attach_disconnected) {
   /usr/bin/mods/usp/ r,
   /usr/bin/mods/usp/* mr,
 }
-

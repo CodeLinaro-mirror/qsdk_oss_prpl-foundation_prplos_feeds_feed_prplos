@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile chronyd /usr/sbin/chronyd flags=(attach_disconnected) {
+profile chronyd /usr/sbin/chronyd flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 

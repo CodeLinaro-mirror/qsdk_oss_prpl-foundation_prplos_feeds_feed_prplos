@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile tr181-pcp /usr/bin/tr181-pcp flags=(attach_disconnected) {
+profile tr181-pcp /usr/bin/tr181-pcp flags=(attach_disconnected, complain) {
   include <abstractions/base>
 
   capability setuid,

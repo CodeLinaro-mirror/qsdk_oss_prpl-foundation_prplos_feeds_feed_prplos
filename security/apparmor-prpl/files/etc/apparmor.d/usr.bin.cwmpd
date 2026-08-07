@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile cwmpd /usr/bin/cwmpd flags=(attach_disconnected) {
+profile cwmpd /usr/bin/cwmpd flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 

@@ -1,6 +1,6 @@
 include <tunables/global>
 
-profile ping /bin/ping flags=(attach_disconnected) {
+profile ping /bin/ping flags=(attach_disconnected, complain) {
   include <abstractions/base>
 
   capability net_raw,

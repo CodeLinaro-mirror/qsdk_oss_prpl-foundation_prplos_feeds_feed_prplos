@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile dnsmasq /usr/sbin/dnsmasq flags=(attach_disconnected) {
+profile dnsmasq /usr/sbin/dnsmasq flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 

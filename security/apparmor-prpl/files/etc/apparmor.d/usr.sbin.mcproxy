@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile mcproxy /usr/sbin/mcproxy flags=(attach_disconnected) {
+profile mcproxy /usr/sbin/mcproxy flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 

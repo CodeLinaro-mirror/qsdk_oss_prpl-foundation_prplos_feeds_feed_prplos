@@ -1,6 +1,6 @@
 include <tunables/global>
 
-profile traceroute /bin/traceroute flags=(attach_disconnected) {
+profile traceroute /bin/traceroute flags=(attach_disconnected, complain) {
   include <abstractions/base>
 
   capability net_raw,

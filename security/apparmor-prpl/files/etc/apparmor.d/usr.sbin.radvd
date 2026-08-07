@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile radvd /usr/sbin/radvd flags=(attach_disconnected) {
+profile radvd /usr/sbin/radvd flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 
@@ -21,4 +21,3 @@ profile radvd /usr/sbin/radvd flags=(attach_disconnected) {
   /tmp/run/radvd.pid rwk,
   /tmp/TZ r,
 }
-

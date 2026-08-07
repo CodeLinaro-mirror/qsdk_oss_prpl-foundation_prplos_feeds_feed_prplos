@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile gmap-client /usr/bin/gmap-client flags=(attach_disconnected) {
+profile gmap-client /usr/bin/gmap-client flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 

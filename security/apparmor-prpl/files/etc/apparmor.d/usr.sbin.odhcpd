@@ -2,7 +2,7 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-profile odhcpd /usr/sbin/odhcpd flags=(attach_disconnected) {
+profile odhcpd /usr/sbin/odhcpd flags=(attach_disconnected, complain) {
   include <abstractions/base>
   include <abstractions/nameservice>
 
