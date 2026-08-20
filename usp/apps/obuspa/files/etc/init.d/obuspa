@@ -77,13 +77,13 @@ register_service()
 						PrivateKeyURI="${PRIVATE_KEY_URI}"
 
 	# -p Enables trace logging of the USP protocol messages. Enable setting -p option to utilize prototracing
-	# procd_append_param command -p
+	procd_append_param command -p
 
 	# Log to /var/log/obuspa instead of syslog
-	# procd_append_param command -l /var/log/obuspa
+	procd_append_param command -l /var/log/obuspa
 
 	# -v Sets the debug verbosity log level: 0=Off, 1=Error(default), 2=Warning, 3=Info
-	# procd_append_param command -v 2
+	procd_append_param command -v 2
 	if [ -f "${CA_FILE}" ]; then
 		procd_append_param command -t ${CA_FILE}
 	fi
