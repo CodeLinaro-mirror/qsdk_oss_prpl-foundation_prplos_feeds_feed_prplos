@@ -78,9 +78,6 @@ define Package/odhcpd/install
 	$(INSTALL_BIN) ./files/odhcpd-update $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/odhcpd.defaults $(1)/etc/uci-defaults/15_odhcpd
-	$(INSTALL_DIR) $(1)/etc/amx/amx-processmonitor/defaults.d/
-	$(INSTALL_BIN) ./files/test-odhcpd.odl $(1)/etc/amx/amx-processmonitor/defaults.d/26-test-odhcpd.odl
 endef
 
 Package/odhcpd-ipv6only/install = $(Package/odhcpd/install)
