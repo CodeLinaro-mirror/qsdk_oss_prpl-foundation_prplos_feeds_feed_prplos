@@ -19,6 +19,14 @@ config SAH_AMX_TR181_IPSEC_STOP_ORDER
     int "shutdown order of tr181-ipsec plugin"
     default 16
 
+config SAH_AMX_TR181_IPSEC_RUN_AS_USER
+    string "User to be used for the tr181 IPsec plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_IPSEC_RUN_AS_GROUP
+    string "Group to be used for the tr181 IPsec plugin"
+    default "tr181_app"
+
 endmenu
 
 endif

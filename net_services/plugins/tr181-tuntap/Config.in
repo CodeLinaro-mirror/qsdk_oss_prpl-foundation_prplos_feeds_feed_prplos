@@ -19,6 +19,14 @@ config SAH_AMX_TR181_TUNTAP_STOP_ORDER
     int "tr181 tuntap plugin shutdown order"
     default 18
 
+config SAH_AMX_TR181_TUNTAP_RUN_AS_USER
+    string "User to be used for the tr181 tuntap plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_TUNTAP_RUN_AS_GROUP
+    string "Group to be used for the tr181 tuntap plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
