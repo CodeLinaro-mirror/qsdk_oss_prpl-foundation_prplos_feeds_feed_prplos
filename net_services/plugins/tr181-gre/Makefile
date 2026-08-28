@@ -42,6 +42,8 @@ define Package/$(PKG_NAME)
   DEPENDS += +libcares
   DEPENDS += +mod-dmext
   DEPENDS += +netmodel-gre
+  DEPENDS += +kmod-gre
+  DEPENDS += +IPV6:kmod-gre6
   MENU:=1
 endef
 
