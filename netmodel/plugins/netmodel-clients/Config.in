@@ -11,9 +11,13 @@ config SAH_AMX_NETMODEL_CLIENTS
     bool "Build the Network Model clients plugin"
     default y
 
-config SAH_AMX_NETMODEL_CLIENTS_ORDER
+config SAH_AMX_NETMODEL_CLIENTS_START_ORDER
     int "Network Model clients plugin startup order"
     default 20
+
+config SAH_AMX_NETMODEL_CLIENTS_STOP_ORDER
+    int "Network Model clients plugin shutdown order"
+    default 80
 
 config SAH_AMX_NETMODEL_CLIENTS_RUN_AS_USER
     string "User will be used for the NETMODEL-CLIENTS plugin"
