@@ -1,13 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libnetmodel
-PKG_VERSION:=v1.5.19
+PKG_VERSION:=dev_PCF-2758_netmodel_ram_optimizations
 SHORT_DESCRIPTION:=NetModel client library
 
-PKG_SOURCE:=libnetmodel-v1.5.19.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libnetmodel/-/archive/v1.5.19
-PKG_HASH:=bf03423271d318bbf4139545afbcaf0e5fb08c6fd94fd2214f3e047eefcb4ed4
-PKG_BUILD_DIR:=$(BUILD_DIR)/libnetmodel-v1.5.19
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=85b57344da9a8bbd8561f23e1ac976b7a3f746f7
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libnetmodel.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
