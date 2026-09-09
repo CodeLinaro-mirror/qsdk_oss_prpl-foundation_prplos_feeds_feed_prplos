@@ -19,6 +19,14 @@ config SAH_AMX_TR181_GRE_STOP_ORDER
     int "tr181 gre plugin shutdown order"
     default 19
 
+config SAH_AMX_TR181_GRE_RUN_AS_USER
+    string "User to be used for the tr181 GRE plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_GRE_RUN_AS_GROUP
+    string "Group to be used for the tr181 GRE plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
