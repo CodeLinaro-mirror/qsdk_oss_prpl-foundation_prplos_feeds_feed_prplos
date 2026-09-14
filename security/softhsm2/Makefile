@@ -34,7 +34,7 @@ endef
 
 define Package/softhsm2/install
 	$(INSTALL_DIR) $(1)/usr/lib/softhsm $(1)/usr/bin $(1)/etc/softhsm/tokens $(1)/etc/init.d
-	$(INSTALL_DIR) $(1)/root/certs $(1)/etc/config/autocert $(1)/usr/share/ca-certificates/test
+	$(INSTALL_DIR) $(1)/root/certs $(1)/etc/config/autocert $(1)/usr/share/ca-certificates/test $(1)/usr/share/ca-certificates/afc
 	$(INSTALL_DIR) $(1)/etc/amx/tr181-security/defaults.d
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/softhsm/libsofthsm2.so* $(1)/usr/lib/softhsm/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/softhsm2-util $(1)/usr/bin/
@@ -47,6 +47,7 @@ define Package/softhsm2/install
 	$(CP) ./files/ca.crt $(1)/usr/share/ca-certificates/test/ca-certificate.crt
 	$(LN) ca.crt $(1)/usr/share/ca-certificates/test/3387b84d.0
 	$(CP) ./files/01_softhsm_test_ca.odl $(1)/etc/amx/tr181-security/defaults.d/
+	$(CP) ./files/afc_ca.pem $(1)/usr/share/ca-certificates/afc/afc_ca.pem
 endef
 
 $(eval $(call BuildPackage,softhsm2))

@@ -6,5 +6,12 @@
             parameter CADirURI = "file:///usr/share/ca-certificates/test";
             parameter CAFileURI = "file:///usr/share/ca-certificates/test/ca-certificate.crt";
         }
+        instance add ("afc") {
+            parameter Enable = true;
+            parameter Name = "afc";
+            parameter CADirURI = "file:///usr/share/ca-certificates/afc";
+            parameter CAFileURI = "file:///usr/share/ca-certificates/afc/afc_ca.pem";
+        }
+
     }
 }
