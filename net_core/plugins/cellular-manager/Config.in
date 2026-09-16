@@ -15,6 +15,14 @@ config SAH_AMX_TR181_CELLULAR_ORDER
     int "Start up order for the tr181 cellular plugin"
     default 97
 
+config SAH_AMX_TR181_CELLULAR_RUN_AS_USER
+    string "User will be used for the cellular-manager plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_CELLULAR_RUN_AS_GROUP
+    string "Group will be used for the cellular-manager plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
