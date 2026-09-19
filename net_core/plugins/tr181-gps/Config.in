@@ -1,0 +1,35 @@
+config PACKAGE_tr181-gps
+	tristate
+	select AMX_TR181_GPS
+
+if PACKAGE_tr181-gps
+
+menu "Select tr181-gps build options"
+	depends on PACKAGE_tr181-gps
+
+config AMX_TR181_GPS
+	bool "Build a tr181 compatible gps plugin"
+	default y
+
+config AMX_TR181_GPS_ORDER
+	int "tr181-gps Plugin start up order"
+	default 52 
+
+config AMX_TR181_GPS_RUN_AS_USER
+	string "User will be used for the tr181-gps plugin"
+	default "tr181_app"
+
+config AMX_TR181_GPS_RUN_AS_GROUP
+	string "Group will be used for the tr181-gps plugin"
+	default "tr181_app"
+
+config AMX_TR181_GPS_DEVICE
+	string "The GPS UART device"
+	default ""
+
+config AMX_TR181_GPS_BAUDRATE
+	string "The GPS UART device baud rate"
+	default ""
+endmenu
+
+endif
