@@ -1,0 +1,40 @@
+config PACKAGE_tr181-barometer
+	tristate
+	select AMX_TR181_BAROMETER
+
+if PACKAGE_tr181-barometer
+
+menu "Select tr181-barometer build options"
+	depends on PACKAGE_tr181-barometer
+
+config AMX_TR181_BAROMETER
+	bool "Build a tr181 compatible barometer plugin"
+	default y
+
+config AMX_TR181_BAROMETER_ORDER
+	int "tr181-barometer Plugin start up order"
+	default 20 
+
+config AMX_TR181_BAROMETER_RUN_AS_USER
+	string "User will be used for the tr181-barometer plugin"
+	default "tr181_app"
+
+config AMX_TR181_BAROMETER_RUN_AS_GROUP
+	string "Group will be used for the tr181-barometer plugin"
+	default "tr181_app"
+
+config AMX_TR181_BAROMETER_IIO_PATH
+        string "path"
+        default ""
+
+config AMX_TR181_BAROMETER_VERTICAL_UNCERTAINTY
+        string "Uncertainty"
+        default ""
+
+config AMX_TR181_BAROMETER_PRESSURE_ACCURACY_PA
+        string "accuracy"
+        default ""
+
+endmenu
+
+endif
