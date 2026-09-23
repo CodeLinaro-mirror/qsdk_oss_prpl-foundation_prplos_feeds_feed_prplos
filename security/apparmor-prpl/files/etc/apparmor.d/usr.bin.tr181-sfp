@@ -1,0 +1,36 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-sfp
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-sfp /usr/bin/tr181-sfp flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-sfp mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-sfp/extensions/ r,
+  /etc/amx/tr181-sfp/extensions/tr181-sfp_usp.odl r,
+  /etc/amx/tr181-sfp/tr181-sfp.odl r,
+  /etc/amx/tr181-sfp/tr181-sfp_database.odl r,
+  /etc/amx/tr181-sfp/tr181-sfp_definition.odl r,
+  /etc/amx/tr181-sfp/tr181-sfp_optical_definition.odl r,
+  /etc/config/tr181-sfp/odl/ r,
+  /etc/config/tr181-sfp/odl/tr181-sfp.odl rw,
+  /etc/config/tr181-sfp/odl/tr181-sfp.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

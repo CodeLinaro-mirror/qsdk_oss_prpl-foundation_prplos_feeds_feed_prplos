@@ -1,0 +1,30 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-upnpdiscovery
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-upnpdiscovery /usr/bin/tr181-upnpdiscovery flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-upnpdiscovery mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/tr181-upnpdiscovery/tr181-upnpdescription_definition.odl r,
+  /etc/amx/tr181-upnpdiscovery/tr181-upnpdiscovery.odl r,
+  /etc/amx/tr181-upnpdiscovery/tr181-upnpdiscovery_definition.odl r,
+  /etc/amx/tr181-upnpdiscovery/tr181-upnpdiscovery_vars.odl r,
+  /etc/config/tr181-upnpdiscovery/odl/ r,
+  /etc/config/tr181-upnpdiscovery/odl/tr181-upnpdiscovery.odl r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+
+}
+

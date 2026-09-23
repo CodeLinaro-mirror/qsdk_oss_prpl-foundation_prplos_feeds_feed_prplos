@@ -1,0 +1,38 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-dhcpv6client
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-dhcpv6client /usr/bin/tr181-dhcpv6client flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-dhcpv6client mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-dhcpv6client/dhcpv6c_definition.odl r,
+  /etc/amx/tr181-dhcpv6client/extensions/ r,
+  /etc/amx/tr181-dhcpv6client/extensions/tr181-dhcpv6client_usp.odl r,
+  /etc/amx/tr181-dhcpv6client/tr181-dhcpv6client.odl r,
+  /etc/amx/tr181-dhcpv6client/tr181-dhcpv6client_upc.odl r,
+  /etc/config/tr181-dhcpv6client/odl/ r,
+  /etc/config/tr181-dhcpv6client/odl/tr181-dhcpv6client.odl rw,
+  /etc/config/tr181-dhcpv6client/odl/tr181-dhcpv6client.odl.tmp rw,
+  /etc/config/tr181-dhcpv6client/pcm/tr181-dhcpv6client-add.json rw,
+  /etc/config/tr181-dhcpv6client/pcm/tr181-dhcpv6client-del.json rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

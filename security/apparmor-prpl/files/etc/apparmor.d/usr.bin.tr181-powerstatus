@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-powerstatus
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-powerstatus /usr/bin/tr181-powerstatus flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-powerstatus mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+

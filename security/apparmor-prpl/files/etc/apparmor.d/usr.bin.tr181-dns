@@ -1,0 +1,50 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-dns
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-dns /usr/bin/tr181-dns flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-dns mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-dns/extensions/ r,
+  /etc/amx/tr181-dns/extensions/tr181-dns_methods.odl r,
+  /etc/amx/tr181-dns/extensions/tr181-dns_usp.odl r,
+  /etc/amx/tr181-dns/tr181-dns.odl r,
+  /etc/amx/tr181-dns/tr181-dns_client.odl r,
+  /etc/amx/tr181-dns/tr181-dns_controllers.odl r,
+  /etc/amx/tr181-dns/tr181-dns_definition.odl r,
+  /etc/amx/tr181-dns/tr181-dns_diagnostics.odl r,
+  /etc/amx/tr181-dns/tr181-dns_forwardzone.odl r,
+  /etc/amx/tr181-dns/tr181-dns_host.odl r,
+  /etc/amx/tr181-dns/tr181-dns_rebindprotection.odl r,
+  /etc/amx/tr181-dns/tr181-dns_relay.odl r,
+  /etc/amx/tr181-dns/tr181-dns_vars.odl r,
+  /etc/amx/tr181-dns/tr181-dns_zone.odl r,
+  /etc/config/tr181-dns/odl/ r,
+  /etc/config/tr181-dns/odl/tr181-dns.odl rw,
+  /etc/config/tr181-dns/odl/tr181-dns.odl.tmp rw,
+  /etc/config/tr181-dns/pcm/tr181-dns-add.json r,
+  /etc/config/tr181-dns/pcm/tr181-dns-del.json r,
+  /etc/unbound/redirect.conf w,
+  /etc/unbound/unbound.conf w,
+  /etc/unbound/unbound.conf.new rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

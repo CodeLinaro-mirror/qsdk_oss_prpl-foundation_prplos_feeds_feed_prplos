@@ -1,0 +1,41 @@
+# vim:syntax=apparmor
+# AppArmor policy for wan-manager
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile wan-manager /usr/bin/wan-manager flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/wan-manager mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/wan-manager/extensions/ r,
+  /etc/amx/wan-manager/extensions/01_network_manager_defaults.odl r,
+  /etc/amx/wan-manager/extensions/02_sfp_manager_defaults.odl r,
+  /etc/amx/wan-manager/extensions/wan-manager_usp.odl r,
+  /etc/amx/wan-manager/wan-manager.odl r,
+  /etc/amx/wan-manager/wan-manager_WAN_Intf_definition.odl r,
+  /etc/amx/wan-manager/wan-manager_WAN_definition.odl r,
+  /etc/amx/wan-manager/wan-manager_definition.odl r,
+  /etc/amx/wan-manager/wan-manager_upc.odl r,
+  /etc/config/wan-manager/odl/ r,
+  /etc/config/wan-manager/odl/wan-manager.odl rw,
+  /etc/config/wan-manager/odl/wan-manager.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

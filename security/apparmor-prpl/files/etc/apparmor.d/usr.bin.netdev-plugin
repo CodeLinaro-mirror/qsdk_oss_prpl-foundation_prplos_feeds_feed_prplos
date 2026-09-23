@@ -1,0 +1,41 @@
+# vim:syntax=apparmor
+# AppArmor policy for netdev-plugin
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile netdev-plugin /usr/bin/netdev-plugin flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  /usr/bin/netdev-plugin mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/netdev-plugin/mibs/ r,
+  /etc/amx/netdev-plugin/mibs/bridge.odl r,
+  /etc/amx/netdev-plugin/mibs/bridge_port.odl r,
+  /etc/amx/netdev-plugin/netdev-plugin.odl r,
+  /etc/amx/netdev-plugin/netdev_conversion_table.odl r,
+  /etc/amx/netdev-plugin/netdev_definitions.odl r,
+  /etc/amx/netdev-plugin/netdev_link.odl r,
+  /etc/amx/netdev-plugin/netdev_link_ipv4addr.odl r,
+  /etc/amx/netdev-plugin/netdev_link_ipv4route.odl r,
+  /etc/amx/netdev-plugin/netdev_link_ipv6addr.odl r,
+  /etc/amx/netdev-plugin/netdev_link_ipv6route.odl r,
+  /etc/amx/netdev-plugin/netdev_link_neigh.odl r,
+  /etc/amx/netdev-plugin/netdev_link_stats.odl r,
+  /etc/amx/netdev-plugin/netdev_rpc_functions.odl r,
+  /etc/amx/netdev-plugin/netdev_rule.odl r,
+  /etc/amx/netdev-plugin/netdev_stats.odl r,
+  /proc/uptime r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+
+}
+

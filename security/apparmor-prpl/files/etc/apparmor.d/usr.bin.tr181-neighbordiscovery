@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-neighbordiscovery
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-neighbordiscovery /usr/bin/tr181-neighbordiscovery flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-neighbordiscovery mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+

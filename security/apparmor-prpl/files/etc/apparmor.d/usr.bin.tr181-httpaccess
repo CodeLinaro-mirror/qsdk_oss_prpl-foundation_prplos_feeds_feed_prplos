@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-httpaccess
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-httpaccess /usr/bin/tr181-httpaccess flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-httpaccess mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+

@@ -1,0 +1,44 @@
+# vim:syntax=apparmor
+# AppArmor policy for ethernet-manager
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile ethernet-manager /usr/bin/ethernet-manager flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+
+  /usr/bin/ethernet-manager mr,
+  /etc/amx/ethernet-manager/ethernet-manager.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_config.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_default_mac_addresses.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_definition.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_interface.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_link.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_rmonstats.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_upc.odl r,
+  /etc/amx/ethernet-manager/ethernet-manager_vlantermination.odl r,
+  /etc/amx/ethernet-manager/extensions/ r,
+  /etc/amx/ethernet-manager/extensions/ethernet-manager_usp.odl r,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/config/ethernet-manager/odl/ethernet-manager.odl rw,
+  /etc/config/ethernet-manager/odl/ethernet-manager.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

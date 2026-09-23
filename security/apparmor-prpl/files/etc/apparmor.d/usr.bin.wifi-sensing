@@ -1,0 +1,28 @@
+# vim:syntax=apparmor
+# AppArmor policy for wifi-sensing
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile wifi-sensing /usr/bin/wifi-sensing flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/wifi-sensing mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/wifi-sensing/wifi-sensing.odl r,
+  /etc/amx/wifi-sensing/wifi-sensing_definition.odl r,
+  /etc/config/wifi-sensing/ r,
+  /etc/config/wifi-sensing/wifi-sensing.odl rw,
+  /etc/config/wifi-sensing/wifi-sensing.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+
+}
+

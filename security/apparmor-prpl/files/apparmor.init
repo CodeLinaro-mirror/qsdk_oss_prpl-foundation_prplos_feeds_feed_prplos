@@ -1,6 +1,6 @@
 #!/bin/sh /etc/rc.common
 
-START=5
+START=05
 USE_PROCD=1
 
 . /lib/functions/apparmor.sh

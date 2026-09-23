@@ -1,0 +1,36 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-xpon
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-xpon /usr/bin/tr181-xpon flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-xpon mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-xpon/defaults.d/ r,
+  /etc/amx/tr181-xpon/defaults.d/00_tr181-xpon_defaults.odl r,
+  /etc/amx/tr181-xpon/extensions/ r,
+  /etc/amx/tr181-xpon/extensions/tr181-xpon.odl r,
+  /etc/amx/tr181-xpon/tr181-xpon.odl r,
+  /etc/amx/tr181-xpon/tr181-xpon_ANI.odl r,
+  /etc/amx/tr181-xpon/tr181-xpon_EthernetUNI.odl r,
+  /etc/amx/tr181-xpon/tr181-xpon_SoftwareImage.odl r,
+  /etc/amx/tr181-xpon/tr181-xpon_definition.odl r,
+  /etc/config/tr181-xpon w,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

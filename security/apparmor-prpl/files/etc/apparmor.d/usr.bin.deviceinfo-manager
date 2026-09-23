@@ -1,0 +1,55 @@
+# vim:syntax=apparmor
+# AppArmor policy for deviceinfo-manager
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile deviceinfo-manager /usr/bin/deviceinfo-manager flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/deviceinfo-manager mr,
+  /etc/amx/deviceinfo-manager/deviceinfo-manager.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo-manager_controllers.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo-manager_definition.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo-manager_definitions.d/vendor_log_file.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo-manager_logrotate_scripts.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo_cert_path.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo_mac_address_rpc.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo_prefix.odl r,
+  /etc/amx/deviceinfo-manager/deviceinfo_vendorlogfile_1.odl r,
+  /etc/amx/deviceinfo-manager/extensions/ r,
+  /etc/amx/deviceinfo-manager/extensions/deviceinfo-manager_requires_users.odl r,
+  /etc/amx/deviceinfo-manager/extensions/deviceinfo-manager_usp.odl r,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_busstats.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/config/deviceinfo-manager/odl/ r,
+  /etc/config/deviceinfo-manager/odl/deviceinfo-manager.odl rw,
+  /etc/config/deviceinfo-manager/odl/deviceinfo-manager.odl.tmp rw,
+  /etc/crontabs/logrotate w,
+  /etc/logrotate.d/syslog-amxmon-procmon.conf w,
+  /etc/logrotate.d/syslog-cmon-cpu0.conf w,
+  /etc/logrotate.d/syslog-cmon-cpu1.conf w,
+  /etc/logrotate.d/syslog-dhcp.conf w,
+  /etc/logrotate.d/syslog-firewall.conf w,
+  /etc/logrotate.d/syslog-lcm.conf w,
+  /etc/logrotate.d/syslog-messages.conf w,
+  /etc/logrotate.d/syslog-resmon-mmon.conf w,
+  /etc/logrotate.d/syslog-wifi.conf w,
+  /proc/ r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

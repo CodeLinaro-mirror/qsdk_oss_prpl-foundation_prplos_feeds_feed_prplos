@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for netmodel-clients
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile netmodel-clients /usr/bin/netmodel-clients flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/netmodel-clients mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/netmodel-clients/netmodel-clients.odl r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+
+}
+

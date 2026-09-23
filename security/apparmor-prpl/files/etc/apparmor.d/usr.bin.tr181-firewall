@@ -1,0 +1,77 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-firewall
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-firewall /usr/bin/tr181-firewall flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability net_admin,
+  capability net_raw,
+  capability sys_module,
+
+  network inet raw,
+  network inet6 raw,
+
+  /usr/bin/tr181-firewall mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_fw-host.odl r,
+  /etc/amx/modules/mod_fw-host_definition.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-firewall/connectiontracking_definition.odl r,
+  /etc/amx/tr181-firewall/dmz_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/ r,
+  /etc/amx/tr181-firewall/extensions/deprecated_ifsetting_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/dmz_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/firewall_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/firewall_synced.odl r,
+  /etc/amx/tr181-firewall/extensions/interfacesetting_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/nat_portmap_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/nat_porttrigger_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/nat_staticnat_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/pinhole_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/policy_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/service_log_definition.odl r,
+  /etc/amx/tr181-firewall/extensions/tr181-firewall_usp.odl r,
+  /etc/amx/tr181-firewall/firewall_definition.odl r,
+  /etc/amx/tr181-firewall/interfacesetting_definition.odl r,
+  /etc/amx/tr181-firewall/ipset_definition.odl r,
+  /etc/amx/tr181-firewall/nat_conntrack_definition.odl r,
+  /etc/amx/tr181-firewall/nat_definition.odl r,
+  /etc/amx/tr181-firewall/nat_ifsetting_definition.odl r,
+  /etc/amx/tr181-firewall/nat_portmap_definition.odl r,
+  /etc/amx/tr181-firewall/nat_porttrigger_definition.odl r,
+  /etc/amx/tr181-firewall/nat_staticnat_definition.odl r,
+  /etc/amx/tr181-firewall/pinhole_definition.odl r,
+  /etc/amx/tr181-firewall/policy_definition.odl r,
+  /etc/amx/tr181-firewall/service_definition.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall_log.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall_netfilter.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall_upc.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall_validators.odl r,
+  /etc/amx/tr181-firewall/tr181-firewall_vars.odl r,
+  /etc/config/tr181-firewall/odl/ r,
+  /etc/config/tr181-firewall/odl/tr181-firewall.odl rw,
+  /etc/config/tr181-firewall/odl/tr181-firewall.odl.tmp rw,
+  /proc/sys/net/netfilter/nf_conntrack_max r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

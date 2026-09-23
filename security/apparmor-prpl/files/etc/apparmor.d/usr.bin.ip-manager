@@ -1,0 +1,58 @@
+# vim:syntax=apparmor
+# AppArmor policy for ip-manager
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile ip-manager /usr/bin/ip-manager flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/ip-manager mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/ip-manager/extensions/ r,
+  /etc/amx/ip-manager/extensions/ip-manager_usp.odl r,
+  /etc/amx/ip-manager/ip-manager-activeport.odl r,
+  /etc/amx/ip-manager/ip-manager-definition.odl r,
+  /etc/amx/ip-manager/ip-manager-interface.odl r,
+  /etc/amx/ip-manager/ip-manager-interface_ipaddress_functions.odl r,
+  /etc/amx/ip-manager/ip-manager-ipv4addr.odl r,
+  /etc/amx/ip-manager/ip-manager-ipv6addr.odl r,
+  /etc/amx/ip-manager/ip-manager-ipv6prefix.odl r,
+  /etc/amx/ip-manager/ip-manager.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/config/ip-manager/odl/ r,
+  /etc/config/ip-manager/odl/ip-manager.odl rw,
+  /etc/config/ip-manager/odl/ip-manager.odl.tmp rw,
+  /etc/config/ip-manager/pcm/ip-manager-add.json r,
+  /etc/config/ip-manager/pcm/ip-manager-del.json r,
+  /proc/sys/net/ipv4/neigh/br-guest/base_reachable_time_ms w,
+  /proc/sys/net/ipv4/neigh/br-lan/base_reachable_time_ms w,
+  /proc/sys/net/ipv4/neigh/br-lcm/base_reachable_time_ms w,
+  /proc/sys/net/ipv4/neigh/lo/base_reachable_time_ms w,
+  /proc/sys/net/ipv6/conf/br-guest/disable_ipv6 w,
+  /proc/sys/net/ipv6/conf/br-lan/disable_ipv6 w,
+  /proc/sys/net/ipv6/conf/br-lcm/disable_ipv6 w,
+  /proc/sys/net/ipv6/conf/lo/disable_ipv6 w,
+  /proc/sys/net/ipv6/neigh/br-guest/base_reachable_time_ms w,
+  /proc/sys/net/ipv6/neigh/br-lan/base_reachable_time_ms w,
+  /proc/sys/net/ipv6/neigh/br-lcm/base_reachable_time_ms w,
+  /proc/sys/net/ipv6/neigh/lo/base_reachable_time_ms w,
+  /sys/devices/virtual/net/br-lan/mtu r,
+  /sys/devices/virtual/net/lo/mtu r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

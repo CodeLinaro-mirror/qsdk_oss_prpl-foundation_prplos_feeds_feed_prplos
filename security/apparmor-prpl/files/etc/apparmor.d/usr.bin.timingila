@@ -1,0 +1,33 @@
+# vim:syntax=apparmor
+# AppArmor policy for timingila
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile timingila /usr/bin/timingila flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/timingila mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/timingila/extensions/ r,
+  /etc/amx/timingila/extensions/timingila_usp.odl r,
+  /etc/amx/timingila/softwaremodules_defaults.odl r,
+  /etc/amx/timingila/softwaremodules_definition.odl r,
+  /etc/amx/timingila/timingila.odl r,
+  /etc/amx/timingila/timingila_defaults.odl r,
+  /etc/amx/timingila/timingila_definition.odl r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}

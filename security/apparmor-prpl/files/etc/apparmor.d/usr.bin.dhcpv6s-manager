@@ -1,0 +1,39 @@
+# vim:syntax=apparmor
+# AppArmor policy for dhcpv6-manager
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile dhcpv6s-manager /usr/bin/dhcpv6s-manager flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/dhcpv6-manager mr,
+  /etc/amx/dhcpv6s-manager/dhcpv6s-manager.odl r,
+  /etc/amx/dhcpv6s-manager/dhcpv6s-manager_definition.odl r,
+  /etc/amx/dhcpv6s-manager/extensions/ r,
+  /etc/amx/dhcpv6s-manager/extensions/dhcpv6s-manager_usp.odl r,
+  /etc/amx/dhcpv6s-manager/server/dhcpv6s-manager-server-pool-options.odl r,
+  /etc/amx/dhcpv6s-manager/server/dhcpv6s-manager-server-pool.odl r,
+  /etc/amx/dhcpv6s-manager/server/dhcpv6s-manager-server.odl r,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/config/dhcpv6s-manager/odl/ r,
+  /etc/config/dhcpv6s-manager/odl/dhcpv6s-manager.odl rw,
+  /etc/config/dhcpv6s-manager/odl/dhcpv6s-manager.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

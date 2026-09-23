@@ -1,0 +1,53 @@
+# vim:syntax=apparmor
+# AppArmor policy for netmodel
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile netmodel /usr/bin/netmodel flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/netmodel mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/netmodel/mibs/ r,
+  /etc/amx/netmodel/mibs/bridgeport.odl r,
+  /etc/amx/netmodel/mibs/cellular.odl r,
+  /etc/amx/netmodel/mibs/dhcpv4.odl r,
+  /etc/amx/netmodel/mibs/dhcpv6.odl r,
+  /etc/amx/netmodel/mibs/dslite.odl r,
+  /etc/amx/netmodel/mibs/eth_intf.odl r,
+  /etc/amx/netmodel/mibs/eth_link.odl r,
+  /etc/amx/netmodel/mibs/gni.odl r,
+  /etc/amx/netmodel/mibs/ip.odl r,
+  /etc/amx/netmodel/mibs/iprouter.odl r,
+  /etc/amx/netmodel/mibs/logical.odl r,
+  /etc/amx/netmodel/mibs/moca.odl r,
+  /etc/amx/netmodel/mibs/netdev.odl r,
+  /etc/amx/netmodel/mibs/optical.odl r,
+  /etc/amx/netmodel/mibs/ppp.odl r,
+  /etc/amx/netmodel/mibs/radio.odl r,
+  /etc/amx/netmodel/mibs/ssid.odl r,
+  /etc/amx/netmodel/mibs/statmon.odl r,
+  /etc/amx/netmodel/mibs/vlan.odl r,
+  /etc/amx/netmodel/mibs/wds.odl r,
+  /etc/amx/netmodel/mibs/xpon.odl r,
+  /etc/amx/netmodel/netmodel.odl r,
+  /etc/amx/netmodel/netmodel/interface_definition.odl r,
+  /etc/amx/netmodel/netmodel/interface_functions.odl r,
+  /etc/amx/netmodel/netmodel/query_definition.odl r,
+  /etc/amx/netmodel/netmodel_defaults/ r,
+  /etc/amx/netmodel/netmodel_defaults/00_netmodel_defaults.odl r,
+  /etc/amx/netmodel/netmodel_definition.odl r,
+  /etc/config/netmodel/odl/ r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+
+}
+

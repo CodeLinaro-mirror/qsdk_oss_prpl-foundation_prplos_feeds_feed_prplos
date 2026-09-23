@@ -1,0 +1,38 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-ppp
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-ppp /usr/bin/tr181-ppp flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-ppp mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-ppp/extensions/ r,
+  /etc/amx/tr181-ppp/extensions/tr181-ppp_usp.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp-interface-ipcp.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp-interface-ipv6cp.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp-interface-pppoe.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp-interface-stats.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp-interface.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp.odl r,
+  /etc/amx/tr181-ppp/tr181-ppp_definition.odl r,
+  /etc/config/tr181-ppp/odl/tr181-ppp.odl rw,
+  /etc/config/tr181-ppp/odl/tr181-ppp.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

@@ -1,0 +1,48 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-qos
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-qos /usr/bin/tr181-qos flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  capability net_admin,
+  capability net_raw,
+
+  network inet raw,
+  network inet6 raw,
+
+  /usr/bin/tr181-qos mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-qos/extensions/ r,
+  /etc/amx/tr181-qos/extensions/tr181-qos_usp.odl r,
+  /etc/amx/tr181-qos/tr181-qos-classification-device.odl r,
+  /etc/amx/tr181-qos/tr181-qos-classification.odl r,
+  /etc/amx/tr181-qos/tr181-qos-node.odl r,
+  /etc/amx/tr181-qos/tr181-qos-queue.odl r,
+  /etc/amx/tr181-qos/tr181-qos-queuestats.odl r,
+  /etc/amx/tr181-qos/tr181-qos-scheduler.odl r,
+  /etc/amx/tr181-qos/tr181-qos-shaper.odl r,
+  /etc/amx/tr181-qos/tr181-qos.odl r,
+  /etc/amx/tr181-qos/tr181-qos_definition.odl r,
+  /etc/config/tr181-qos/odl/ r,
+  /etc/config/tr181-qos/odl/tr181-qos.odl rw,
+  /etc/config/tr181-qos/odl/tr181-qos.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

@@ -1,0 +1,36 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-mqttbroker
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-mqttbroker /usr/bin/tr181-mqttbroker flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-mqttbroker mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-mqttbroker/extensions/ r,
+  /etc/amx/tr181-mqttbroker/extensions/tr181-mqttbroker_usp.odl r,
+  /etc/amx/tr181-mqttbroker/tr181-mqttbroker.odl r,
+  /etc/amx/tr181-mqttbroker/tr181-mqttbroker_definition.odl r,
+  /etc/amx/tr181-mqttbroker/tr181-mqttbroker_upc.odl r,
+  /etc/config/tr181-mqttbroker/odl/ r,
+  /etc/config/tr181-mqttbroker/odl/tr181-mqttbroker.odl rw,
+  /etc/config/tr181-mqttbroker/odl/tr181-mqttbroker.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

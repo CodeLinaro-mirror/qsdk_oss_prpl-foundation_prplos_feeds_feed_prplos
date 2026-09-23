@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for wifi-scheduler
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile wifi-scheduler /usr/bin/wifi-scheduler flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/wifi-scheduler mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+

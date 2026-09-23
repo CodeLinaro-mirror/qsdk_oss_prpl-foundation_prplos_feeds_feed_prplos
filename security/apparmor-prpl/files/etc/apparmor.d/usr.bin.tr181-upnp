@@ -1,0 +1,38 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-upnp
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-upnp /usr/bin/tr181-upnp flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/tr181-upnp mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_ip_interfaces.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_pcm_svc.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-upnp/extensions/ r,
+  /etc/amx/tr181-upnp/extensions/tr181-upnp_usp.odl r,
+  /etc/amx/tr181-upnp/tr181-upnp.odl r,
+  /etc/amx/tr181-upnp/tr181-upnp_definition.odl r,
+  /etc/amx/tr181-upnp/tr181-upnp_vendorcfg.odl r,
+  /etc/config/tr181-upnp/odl/ r,
+  /etc/config/tr181-upnp/odl/tr181-upnp.odl rw,
+  /etc/config/tr181-upnp/odl/tr181-upnp.odl.tmp rw,
+  /etc/miniupnpd.conf.override r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

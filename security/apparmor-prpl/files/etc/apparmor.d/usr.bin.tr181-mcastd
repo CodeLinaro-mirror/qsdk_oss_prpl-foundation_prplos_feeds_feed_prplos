@@ -1,0 +1,38 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-mcastd
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-mcastd /usr/bin/tr181-mcastd flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  capability net_admin,
+
+  network netlink dgram,
+
+  /usr/bin/tr181-mcastd mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-mcastd/extensions/ r,
+  /etc/amx/tr181-mcastd/extensions/mcastd_noforward.odl r,
+  /etc/amx/tr181-mcastd/extensions/tr181-mcastd_usp.odl r,
+  /etc/amx/tr181-mcastd/mcastd_definition.odl r,
+  /etc/amx/tr181-mcastd/tr181-mcastd.odl r,
+  /etc/config/tr181-mcastd/odl/tr181-mcastd.odl rw,
+  /etc/config/tr181-mcastd/odl/tr181-mcastd.odl.tmp rw,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}
+

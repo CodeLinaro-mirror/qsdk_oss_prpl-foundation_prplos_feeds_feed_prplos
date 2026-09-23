@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for amx-processmonitor
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile amx-processmonitor /usr/bin/amx-processmonitor flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/amx-processmonitor mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+

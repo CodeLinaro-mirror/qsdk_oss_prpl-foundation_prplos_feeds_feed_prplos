@@ -1,0 +1,57 @@
+# vim:syntax=apparmor
+# AppArmor policy for tr181-bridging
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile tr181-bridging /usr/bin/tr181-bridging flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+  include <abstractions/apache2-common>
+
+  capability net_admin,
+
+  /usr/bin/tr181-bridging mr,
+  /etc/amx/global.d/ r,
+  /etc/amx/global.d/01_global_variables.odl r,
+  /etc/amx/modules/global_trace.odl r,
+  /etc/amx/modules/global_variables.odl r,
+  /etc/amx/modules/mod_sahtrace.odl r,
+  /etc/amx/modules/usp/local-agent.odl r,
+  /etc/amx/tr181-bridging/extensions/ r,
+  /etc/amx/tr181-bridging/extensions/tr181-bridging_usp.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging_definition.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging_port.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging_stp.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging_vlan.odl r,
+  /etc/amx/tr181-bridging/tr181-bridging_vlanport.odl r,
+  /etc/config/tr181-bridging/odl/tr181-bridging.odl rw,
+  /etc/config/tr181-bridging/odl/tr181-bridging.odl.tmp rw,
+  /sys/devices/virtual/net/br-guest/bridge/ageing_time r,
+  /sys/devices/virtual/net/br-guest/bridge/forward_delay r,
+  /sys/devices/virtual/net/br-guest/bridge/hello_time r,
+  /sys/devices/virtual/net/br-guest/bridge/max_age r,
+  /sys/devices/virtual/net/br-guest/bridge/priority r,
+  /sys/devices/virtual/net/br-guest/bridge/stp_state r,
+  /sys/devices/virtual/net/br-lan/bridge/ageing_time r,
+  /sys/devices/virtual/net/br-lan/bridge/forward_delay r,
+  /sys/devices/virtual/net/br-lan/bridge/hello_time r,
+  /sys/devices/virtual/net/br-lan/bridge/max_age r,
+  /sys/devices/virtual/net/br-lan/bridge/priority r,
+  /sys/devices/virtual/net/br-lan/bridge/stp_state r,
+  /sys/devices/virtual/net/br-lcm/bridge/ageing_time r,
+  /sys/devices/virtual/net/br-lcm/bridge/forward_delay r,
+  /sys/devices/virtual/net/br-lcm/bridge/hello_time r,
+  /sys/devices/virtual/net/br-lcm/bridge/max_age r,
+  /sys/devices/virtual/net/br-lcm/bridge/priority r,
+  /sys/devices/virtual/net/br-lcm/bridge/stp_state r,
+  /usr/bin/mods/amxb/ r,
+  /usr/bin/mods/amxb/05-mod-amxb-ubus.so mr,
+  /usr/bin/mods/usp/ r,
+  /usr/bin/mods/usp/mod-amxb-usp.so mr,
+
+}

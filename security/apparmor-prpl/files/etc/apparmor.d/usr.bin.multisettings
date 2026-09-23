@@ -1,0 +1,24 @@
+# vim:syntax=apparmor
+# AppArmor policy for multisettings
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+# No template variables specified
+
+profile multisettings /usr/bin/multisettings flags=(attach_disconnected, complain) {
+  include <abstractions/base>
+
+  /usr/bin/multisettings mr,
+
+  # No abstractions specified
+
+  # No policy groups specified
+
+  # No read paths specified
+
+  # No write paths specified
+}
+
