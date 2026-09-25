@@ -19,6 +19,14 @@ config SAH_AMX_TR181_WIREGUARD_STOP_ORDER
     int "Shutdown order for the tr181 WireGuard plugin"
     default 75
 
+config SAH_AMX_TR181_WIREGUARD_RUN_AS_USER
+    string "User to be used for the tr181 Wireguard plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_WIREGUARD_RUN_AS_GROUP
+    string "Group to be used for the tr181 Wireguard plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
