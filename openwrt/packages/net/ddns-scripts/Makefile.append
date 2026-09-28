@@ -1,0 +1,9 @@
+ifneq ($(PKG_VERSION).$(PKG_RELEASE),2.8.2.64)
+  $(error upstream ddns-scripts was updated, please update patched scripts)
+endif
+
+define Package/ddns-scripts/install-append
+	$(THISDIR)/scripts/ddns-scripts-patch.sh $$(1)
+endef
+
+$(call append,Package/ddns-scripts/install,$(newline)$(Package/ddns-scripts/install-append))
