@@ -1,15 +1,15 @@
 # WARNING: Automatically generated file using BAF (Build system Agnostic File) tooling (version v2.39.3)
-# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libpass/-/blob/main/baf.yml instead
+# WARNING: You should contribute changes to https://gitlab.com/prpl-foundation/components/core/libraries/libpassgen/-/blob/main/baf.yml instead
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=libpass
-PKG_VERSION:=v0.3.0
+PKG_NAME:=libpassgen
+PKG_VERSION:=v1.0.0
 SHORT_DESCRIPTION:=shared library for password management
 
-PKG_SOURCE:=libpass-v0.3.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libpass/-/archive/v0.3.0
-PKG_HASH:=2d7cc50f38d42aeb2dd40827ee67567e66dc2e7373fa139f5f76b16c1bf7e91c
-PKG_BUILD_DIR:=$(BUILD_DIR)/libpass-v0.3.0
+PKG_SOURCE:=libpassgen-v1.0.0.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libpassgen/-/archive/v1.0.0
+PKG_HASH:=f58eca2ab1087c3cc61428ea9a2dea008c6429b73bf161bf178f7457fcbf79c4
+PKG_BUILD_DIR:=$(BUILD_DIR)/libpassgen-v1.0.0
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -23,7 +23,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=prpl Foundation
   SUBMENU:=Libraries
   TITLE:=$(SHORT_DESCRIPTION)
-  URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libpass
+  URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libpassgen
   DEPENDS += +liblcm
   DEPENDS += +libsahtrace
   MENU:=1
