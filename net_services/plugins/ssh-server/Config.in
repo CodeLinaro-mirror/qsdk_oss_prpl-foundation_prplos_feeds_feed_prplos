@@ -19,6 +19,14 @@ config SAH_AMX_SSH_SERVER_SOP
     bool "Build ssh server plugin for SOP"
     default n
 
+config SAH_AMX_SSH_SERVER_RUN_AS_USER
+    string "User will be used for the ssh-server plugin"
+    default "tr181_app"
+
+config SAH_AMX_SSH_SERVER_RUN_AS_GROUP
+    string "Group will be used for the ssh-server plugin"
+    default "tr181_app"
+
 endmenu
 
 endif
