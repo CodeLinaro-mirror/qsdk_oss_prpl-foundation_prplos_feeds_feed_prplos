@@ -9,11 +9,21 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=odhcp6c
 PKG_RELEASE:=20
+PKG_VERSION:=dev_PPW-2466
+
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=5d4a79cceb87f21ced57bfa74d738801ac2ece9a
+PKG_SOURCE_VERSION:=dev_PPW-2466
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/mirrors/odhcp6c.git
-PKG_MIRROR_HASH:=382d42a2d64a011412ef2ce014f9023e0ea93f98acbc1a531f4ae89b53ef75aa
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+
+
+
+#PKG_SOURCE_PROTO:=git
+#PKG_SOURCE_VERSION:=5d4a79cceb87f21ced57bfa74d738801ac2ece9a
+#PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/mirrors/odhcp6c.git
+#PKG_MIRROR_HASH:=382d42a2d64a011412ef2ce014f9023e0ea93f98acbc1a531f4ae89b53ef75aa
 
 PKG_MAINTAINER:=Hans Dedecker <dedeckeh@gmail.com>
 PKG_LICENSE:=GPL-2.0
