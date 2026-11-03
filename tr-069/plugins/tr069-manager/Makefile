@@ -82,6 +82,7 @@ define Package/$(PKG_NAME)/install
 	find $(1) -name *.a -exec rm {} +;
 	find $(1) -name *.h -exec rm {} +;
 	find $(1) -name *.pc -exec rm {} +;
+	rm $(1)/usr/bin/cwmp_plugin
 endef
 
 define Package/$(PKG_NAME)/config
