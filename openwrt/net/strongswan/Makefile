@@ -5,6 +5,13 @@
 # See /LICENSE for more information.
 #
 
+### PRPLOS_CONFIG_START
+
+# Linux capability support is needed to run charon as non-root
+export with_capabilities=native
+
+### PRPLOS_CONFIG_END
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=strongswan
