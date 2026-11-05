@@ -8,11 +8,12 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=opennds-prpl
 PKG_RELEASE:=1
 
-PKG_VERSION:=10.2.0
-PKG_SOURCE:=opennds-prpl-stable-10.2.y_v0.1.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/mirrors/opennds/-/archive/prpl/stable-10.2.y_v0.1.0
-PKG_HASH:=c8bc1e2df031d4f4c64c00ff43749fdb2901ad78a6a826d6557e9499f339d4a9
-PKG_BUILD_DIR:=$(BUILD_DIR)/opennds-prpl-stable-10.2.y_v0.1.0
+PKG_VERSION:=PPW-2238-opennds-update-libopennds-sh
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=PPW-2238-opennds-update-libopennds-sh
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/mirrors/opennds.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Rob White <rob@blue-wave.net>
 PKG_LICENSE:=GPL-2.0-or-later
