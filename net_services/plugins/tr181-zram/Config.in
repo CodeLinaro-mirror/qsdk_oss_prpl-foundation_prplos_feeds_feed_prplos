@@ -1,0 +1,25 @@
+config PACKAGE_tr181-zram
+    tristate
+    select SAH_AMX_TR181_ZRAM
+
+if PACKAGE_tr181-zram
+
+menu "Select tr181-zram build options"
+    depends on PACKAGE_tr181-zram
+
+config SAH_AMX_TR181_ZRAM
+    bool "Build the tr181 swap and ZRAM plugin"
+    default y
+    select BUSYBOX_CONFIG_MKSWAP
+
+config SAH_AMX_TR181_ZRAM_ORDER
+    int "Start up order for the tr181 ZRAM plugin"
+    default 13
+	help
+	  Must be after sysctl (11), whose vm.swappiness the plugin overrides,
+	  and is after tr181-syslog (12). The init script waits for syslog-ng
+	  (syslog-ng-ctl, at most 60 s) before it starts the plugin.
+
+endmenu
+
+endif
