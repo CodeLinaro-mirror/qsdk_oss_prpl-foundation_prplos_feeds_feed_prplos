@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-gatewayinfo
-PKG_VERSION:=v0.2.0
+PKG_VERSION:=v0.2.0-ppw414
 PKG_RELEASE:=1
 PKG_LICENSE:=BSD-2-Clause-Patent
 
-PKG_SOURCE:=tr181-gatewayinfo-v0.2.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-gatewayinfo/-/archive/v0.2.0
-PKG_HASH:=018f4bd7b6a28a4c2d1ef033ca46f08b4d0f806776c46ff7f41a7a594ae59416
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-gatewayinfo-v0.2.0
+PKG_SOURCE:=tr181-gatewayinfo-v0.2.0-ppw414.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-gatewayinfo/-/archive/11c21314661bd2ab4f1ee37433331e423fecf9b2
+PKG_HASH:=2f7a7e4f754cd8edbd884ce9dc948364b34f5213647aacae604e17ebf0530ab9
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-gatewayinfo-11c21314661bd2ab4f1ee37433331e423fecf9b2
 
 COMPONENT:=tr181-gatewayinfo
 

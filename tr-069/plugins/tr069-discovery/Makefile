@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr069-discovery
-PKG_VERSION:=v0.2.0
+PKG_VERSION:=v0.2.0-ppw414
 SHORT_DESCRIPTION:=ACS discovery via DHCP
 
-PKG_SOURCE:=tr069-discovery-v0.2.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr069-discovery/-/archive/v0.2.0
-PKG_HASH:=72dfe39e8e72d3698da68df7f7007504948441e0131677c05c833fbe74dcfc50
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr069-discovery-v0.2.0
+PKG_SOURCE:=tr069-discovery-v0.2.0-ppw414.tar.gz
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr069-discovery/-/archive/7f3b38b026c36c682f60411c0aa7c19dae676889
+PKG_HASH:=efc65f36bd5c8a3c4ad84735f95378127a5d27b473e3071368b2b65b85990135
+PKG_BUILD_DIR:=$(BUILD_DIR)/tr069-discovery-7f3b38b026c36c682f60411c0aa7c19dae676889
 
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
