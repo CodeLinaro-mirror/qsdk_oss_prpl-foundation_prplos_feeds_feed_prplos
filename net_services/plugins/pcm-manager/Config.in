@@ -27,6 +27,10 @@ config SAH_AMX_PCM_RUN_AS_GROUP
     string "Group will be used for the PCM-MANAGER plugin"
     default "tr181_app"
 
+config SAH_AMX_PCM_SECURESTORE
+    bool "Enable mounting the securestore partition under /cfg"
+    default n
+
 endmenu
 
 endif
