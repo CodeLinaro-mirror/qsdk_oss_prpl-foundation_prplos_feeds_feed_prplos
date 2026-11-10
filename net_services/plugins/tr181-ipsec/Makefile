@@ -3,13 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tr181-ipsec
-PKG_VERSION:=v0.6.0
+PKG_VERSION:=dev_PCF-2277
 SHORT_DESCRIPTION:=Implementation of Device
 
-PKG_SOURCE:=tr181-ipsec-v0.6.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-ipsec/-/archive/v0.6.0
-PKG_HASH:=b8b14cf815529cc165aea0638c138eea11833f8b4624f847a7bf19c1b4e3eae1
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-ipsec-v0.6.0
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=dev_PCF-2277
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-ipsec.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
@@ -48,6 +49,7 @@ define Package/$(PKG_NAME)
   DEPENDS += +strongswan-charon
   DEPENDS += +strongswan-mod-kdf
   DEPENDS += +strongswan-mod-vici
+  DEPENDS += +kmod-ipsec
   DEPENDS += +kmod-xfrm-interface
   DEPENDS += +netmodel-ipsec
   MENU:=1
