@@ -21,7 +21,7 @@ PKG_RELEASE:=1
 PKG_LICENSE:=BSD-3-Clause
 PKG_LICENSE_FILES:=LICENSE
 
-include $(INCLUDE_DIR)/host-build.mk
+#include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
@@ -49,10 +49,10 @@ define Package/obudpst/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/udpst $(1)/usr/sbin/udpst
 endef
 
-define Host/Install
-	$(INSTALL_DIR) $(STAGING_DIR_HOST)/obudpst
-	$(CP) $(HOST_BUILD_DIR)/udpst $(STAGING_DIR_HOST)/obudpst/
-endef
+#define Host/Install
+#	$(INSTALL_DIR) $(STAGING_DIR_HOST)/obudpst
+#	$(CP) $(HOST_BUILD_DIR)/udpst $(STAGING_DIR_HOST)/obudpst/
+#endef
 
-$(eval $(call HostBuild))
+#$(eval $(call HostBuild))
 $(eval $(call BuildPackage,obudpst))
