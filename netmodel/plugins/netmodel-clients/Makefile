@@ -7,7 +7,7 @@ PKG_VERSION:=dev_PCF-2758_netmodel_ram_optimizations
 SHORT_DESCRIPTION:=Network Model clients plugin
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=d1fd070ed0e9b7ade02d2ce54ff1a696eacf41f5
+PKG_SOURCE_VERSION:=dev_PCF-2758_netmodel_ram_optimizations
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/netmodel/applications/netmodel-clients.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
