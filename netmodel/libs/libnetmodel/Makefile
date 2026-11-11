@@ -5,7 +5,7 @@ PKG_VERSION:=dev_PCF-2758_netmodel_ram_optimizations
 SHORT_DESCRIPTION:=NetModel client library
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=85b57344da9a8bbd8561f23e1ac976b7a3f746f7
+PKG_SOURCE_VERSION:=dev_PCF-2758_netmodel_ram_optimizations
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/libraries/libnetmodel.git
 PKG_MIRROR_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
