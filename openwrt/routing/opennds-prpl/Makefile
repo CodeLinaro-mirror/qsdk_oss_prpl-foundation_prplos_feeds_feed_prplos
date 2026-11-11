@@ -12,7 +12,7 @@ PKG_VERSION:=PPW-2238-opennds-update-libopennds-sh
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=PPW-2238-opennds-update-libopennds-sh
 PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/mirrors/opennds.git
-PKG_MIRROR_HASH:=skip
+PKG_MIRROR_HASH:=3832a531de69a164f83441f70c6984bf22697832a14f0121cfb446f0274bf4f0
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Rob White <rob@blue-wave.net>
