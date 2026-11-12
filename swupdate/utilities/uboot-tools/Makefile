@@ -4,10 +4,12 @@ PKG_NAME:=uboot-tools
 PKG_VERSION:=v2026.01
 SHORT_DESCRIPTION:=U-Boot upstream bootloader for tools
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v2026.01
-PKG_SOURCE_URL:=https://github.com/u-boot/u-boot
-PKG_MIRROR_HASH:=e5112fc65d292aa6bb5bca42482ad262f9b3217063eeb571325a7051a9cae150
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/u-boot/u-boot/archive/refs/tags
+PKG_SOURCE_URL_FILE:=$(PKG_VERSION).tar.gz
+PKG_HASH:=03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654
+# The top directory of the GitHub archive has no leading v in the version
+UBOOT_SRC_DIR:=u-boot-$(patsubst v%,%,$(PKG_VERSION))
 PKG_BUILD_DEPENDS:=libopenssl
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=GPL-2.0-or-later
@@ -67,7 +69,7 @@ UBOOT_CROSS_TOOLS := \
 	fit_check_sign \
 	preload_check_sign
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(UBOOT_SRC_DIR)
 
 define Build/Compile
 	$(MAKE) STAGINGDIR=$(STAGING_DIR) \
@@ -87,7 +89,7 @@ define Package/$(PKG_NAME)/install
 	fi
 endef
 
-HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(PKG_NAME)-$(PKG_VERSION)
+HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(UBOOT_SRC_DIR)
 
 define Host/Compile
 	$(call HostPython3/PipInstall,-r requirements.txt)
