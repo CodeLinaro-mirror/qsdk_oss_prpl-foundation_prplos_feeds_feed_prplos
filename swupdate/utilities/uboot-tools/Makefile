@@ -92,6 +92,8 @@ HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(PKG_NAME)-$(PKG_VERSION)
 define Host/Compile
 	$(call HostPython3/PipInstall,-r requirements.txt)
 	$(MAKE) STAGINGDIR=$(STAGING_DIR_HOST) \
+		HOSTCFLAGS="$(HOST_CFLAGS)" \
+		HOSTLDFLAGS="$(HOST_LDFLAGS)" \
 		-C $(HOST_BUILD_DIR) \
 		tools-only_defconfig \
 		scripts_dtc tools-only
