@@ -3,13 +3,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=routing-manager
-PKG_VERSION:=v1.38.0
+PKG_VERSION:=PPW-2173-tr181-routing-memory-leak
 SHORT_DESCRIPTION:=Implementation of Device
 
-PKG_SOURCE:=tr181-routing-v1.38.0.tar.gz
-PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-routing/-/archive/v1.38.0
-PKG_HASH:=e7dd048817821ef9b30fb4744a5d2b59c55edc764becdea61557d131deb9a59e
-PKG_BUILD_DIR:=$(BUILD_DIR)/tr181-routing-v1.38.0
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=PPW-2173-tr181-routing-memory-leak
+PKG_SOURCE_URL:=https://gitlab.com/prpl-foundation/components/core/plugins/tr181-routing.git
+PKG_MIRROR_HASH:=skip
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=BSD-2-Clause-Patent
 PKG_LICENSE_FILES:=LICENSE
