@@ -4,13 +4,13 @@ PKG_NAME:=swugenerator
 PKG_VERSION:=0.6
 PKG_RELEASE:=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=0.6
-PKG_MIRROR_HASH:=7d08a118023eaf7270b61b82f136930a85708c828ced4622b01daabe01c9a320,
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/sbabic/swugenerator/archive/refs/tags
+PKG_SOURCE_URL_FILE:=$(PKG_VERSION).tar.gz
+PKG_HASH:=06098c4b3a6c3e5946a11929f95f280baacb512fc4154e16af2262c60a36cbc6
 PKG_MAINTAINER:=Soft At Home <support.opensource@softathome.com>
 PKG_LICENSE:=GPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE
-PKG_SOURCE_URL:=https://github.com/sbabic/swugenerator.git
 
 PYTHON3_PKG_BUILD:=0
 HOST_BUILD_DEPENDS:=python3/host
