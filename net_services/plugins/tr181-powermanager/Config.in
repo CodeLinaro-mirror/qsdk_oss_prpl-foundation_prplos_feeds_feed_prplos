@@ -19,6 +19,14 @@ config SAH_AMX_TR181_POWERMANAGER_STOP_ORDER
     int "tr181 powermanager plugin shutdown order"
     default 19
 
+config SAH_AMX_TR181_POWERMANAGER_RUN_AS_USER
+    string "User will be used for the TR-181 compatible powermanager process"
+    default "tr181_app"
+
+config SAH_AMX_TR181_POWERMANAGER_RUN_AS_GROUP
+    string "Group will be used for the TR-181 compatible powermanager process"
+    default "tr181_app"
+
 endmenu
 
 endif
